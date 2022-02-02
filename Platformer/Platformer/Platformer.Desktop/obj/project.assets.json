@@ -1,0 +1,403 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "MonoGame.Content.Builder.Task/3.8.0.1641": {
+        "type": "package",
+        "build": {
+          "build/MonoGame.Content.Builder.Task.props": {},
+          "build/MonoGame.Content.Builder.Task.targets": {}
+        }
+      },
+      "MonoGame.Framework.DesktopGL/3.8.0.1641": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MonoGame.Framework.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Framework.dll": {}
+        },
+        "build": {
+          "build/MonoGame.Framework.DesktopGL.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libSDL2-2.0.so.0": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x64/native/libopenal.so.1": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx/native/libSDL2-2.0.0.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/osx/native/libopenal.1.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/win-x64/native/SDL2.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/soft_oal.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/SDL2.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          },
+          "runtimes/win-x86/native/soft_oal.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
+      "System.Text.Encodings.Web/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/System.Text.Encodings.Web.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/System.Text.Encodings.Web.dll": {}
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
+      "System.Text.Json/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0",
+          "System.Text.Encodings.Web": "6.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/System.Text.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/System.Text.Json.dll": {}
+        },
+        "build": {
+          "build/System.Text.Json.targets": {},
+          "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MonoGame.Content.Builder.Task/3.8.0.1641": {
+      "sha512": "oHA60q9MhkqGnSiJlXosdynD400sQ/j1Ef+0XkJYIQT4Io9RQ6Zk8i0vjpnIbQ0PgsoaQN3IRYjNzkhqq3uUGA==",
+      "type": "package",
+      "path": "monogame.content.builder.task/3.8.0.1641",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "build/MonoGame.Content.Builder.Task.props",
+        "build/MonoGame.Content.Builder.Task.targets",
+        "monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
+        "monogame.content.builder.task.nuspec",
+        "tools/netcoreapp3.1/any/ATI.TextureConverter.dll",
+        "tools/netcoreapp3.1/any/ATI.TextureConverter.dll.config",
+        "tools/netcoreapp3.1/any/AssimpNet.dll",
+        "tools/netcoreapp3.1/any/CppNet.dll",
+        "tools/netcoreapp3.1/any/FreeImage.dll",
+        "tools/netcoreapp3.1/any/MonoGame.Framework.Content.Pipeline.dll",
+        "tools/netcoreapp3.1/any/MonoGame.Framework.Content.Pipeline.pdb",
+        "tools/netcoreapp3.1/any/MonoGame.Framework.dll",
+        "tools/netcoreapp3.1/any/MonoGame.Framework.pdb",
+        "tools/netcoreapp3.1/any/MonoGame.Framework.xml",
+        "tools/netcoreapp3.1/any/Nvidia.TextureTools.dll",
+        "tools/netcoreapp3.1/any/Nvidia.TextureTools.dll.config",
+        "tools/netcoreapp3.1/any/PVRTexLibNET.dll",
+        "tools/netcoreapp3.1/any/PVRTexLibNET.dll.config",
+        "tools/netcoreapp3.1/any/PVRTexLibWrapper.dll",
+        "tools/netcoreapp3.1/any/SharpDX.D3DCompiler.dll",
+        "tools/netcoreapp3.1/any/SharpDX.D3DCompiler.xml",
+        "tools/netcoreapp3.1/any/SharpDX.dll",
+        "tools/netcoreapp3.1/any/SharpDX.xml",
+        "tools/netcoreapp3.1/any/SharpFont.dll",
+        "tools/netcoreapp3.1/any/SharpFont.dll.config",
+        "tools/netcoreapp3.1/any/ffmpeg.exe",
+        "tools/netcoreapp3.1/any/ffprobe.exe",
+        "tools/netcoreapp3.1/any/freetype6.dll",
+        "tools/netcoreapp3.1/any/libFreeImage.dylib",
+        "tools/netcoreapp3.1/any/libFreeImage.so",
+        "tools/netcoreapp3.1/any/libPVRTexLibWrapper.dylib",
+        "tools/netcoreapp3.1/any/libPVRTexLibWrapper.so",
+        "tools/netcoreapp3.1/any/libSDL2-2.0.0.dylib",
+        "tools/netcoreapp3.1/any/libfreetype6.dylib",
+        "tools/netcoreapp3.1/any/libfreetype6.so",
+        "tools/netcoreapp3.1/any/libmojoshader_64.dll",
+        "tools/netcoreapp3.1/any/libnvcore.dylib",
+        "tools/netcoreapp3.1/any/libnvcore.so",
+        "tools/netcoreapp3.1/any/libnvimage.dylib",
+        "tools/netcoreapp3.1/any/libnvimage.so",
+        "tools/netcoreapp3.1/any/libnvmath.dylib",
+        "tools/netcoreapp3.1/any/libnvmath.so",
+        "tools/netcoreapp3.1/any/libnvtt.dylib",
+        "tools/netcoreapp3.1/any/libnvtt.so",
+        "tools/netcoreapp3.1/any/libopenal.1.dylib",
+        "tools/netcoreapp3.1/any/libpng16.16.dylib",
+        "tools/netcoreapp3.1/any/libpng16.so.16",
+        "tools/netcoreapp3.1/any/linux/ffmpeg",
+        "tools/netcoreapp3.1/any/linux/ffprobe",
+        "tools/netcoreapp3.1/any/mgcb.deps.json",
+        "tools/netcoreapp3.1/any/mgcb.dll",
+        "tools/netcoreapp3.1/any/mgcb.exe",
+        "tools/netcoreapp3.1/any/mgcb.pdb",
+        "tools/netcoreapp3.1/any/mgcb.runtimeconfig.json",
+        "tools/netcoreapp3.1/any/mgfxc.deps.json",
+        "tools/netcoreapp3.1/any/mgfxc.dll",
+        "tools/netcoreapp3.1/any/mgfxc.exe",
+        "tools/netcoreapp3.1/any/mgfxc.pdb",
+        "tools/netcoreapp3.1/any/mgfxc.runtimeconfig.json",
+        "tools/netcoreapp3.1/any/nvtt.dll",
+        "tools/netcoreapp3.1/any/osx/ffmpeg",
+        "tools/netcoreapp3.1/any/osx/ffprobe",
+        "tools/netcoreapp3.1/any/runtimes/linux-x64/native/libassimp.so",
+        "tools/netcoreapp3.1/any/runtimes/osx-x64/native/libassimp.dylib",
+        "tools/netcoreapp3.1/any/runtimes/win-x64/native/assimp.dll",
+        "tools/netcoreapp3.1/any/runtimes/win-x86/native/assimp.dll",
+        "tools/netcoreapp3.1/any/x64/SDL2.dll",
+        "tools/netcoreapp3.1/any/x64/libSDL2-2.0.so.0",
+        "tools/netcoreapp3.1/any/x64/libopenal.so.1",
+        "tools/netcoreapp3.1/any/x64/soft_oal.dll",
+        "tools/netcoreapp3.1/any/x86/SDL2.dll",
+        "tools/netcoreapp3.1/any/x86/soft_oal.dll"
+      ]
+    },
+    "MonoGame.Framework.DesktopGL/3.8.0.1641": {
+      "sha512": "rJQlrlHQbnOECYV6EcQ8GlGRQ2lzPTroXQcyyOZ0ki+BQRSJEN2zVBm9skqLiXya348aGAfTSSGTaSKjAy9NaA==",
+      "type": "package",
+      "path": "monogame.framework.desktopgl/3.8.0.1641",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "build/MonoGame.Framework.DesktopGL.targets",
+        "lib/net452/MonoGame.Framework.dll",
+        "lib/net452/MonoGame.Framework.xml",
+        "lib/netstandard2.0/MonoGame.Framework.dll",
+        "lib/netstandard2.0/MonoGame.Framework.xml",
+        "monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512",
+        "monogame.framework.desktopgl.nuspec",
+        "runtimes/linux-x64/native/libSDL2-2.0.so.0",
+        "runtimes/linux-x64/native/libopenal.so.1",
+        "runtimes/osx/native/libSDL2-2.0.0.dylib",
+        "runtimes/osx/native/libopenal.1.dylib",
+        "runtimes/win-x64/native/SDL2.dll",
+        "runtimes/win-x64/native/soft_oal.dll",
+        "runtimes/win-x86/native/SDL2.dll",
+        "runtimes/win-x86/native/soft_oal.dll"
+      ]
+    },
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "sha512": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+      "type": "package",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Text.Encodings.Web/6.0.0": {
+      "sha512": "Vg8eB5Tawm1IFqj4TVK1czJX89rhFxJo9ELqc/Eiq0eXy13RK00eubyU6TJE6y+GQXjyV5gSfiewDUZjQgSE0w==",
+      "type": "package",
+      "path": "system.text.encodings.web/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Text.Encodings.Web.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Text.Encodings.Web.dll",
+        "lib/net461/System.Text.Encodings.Web.xml",
+        "lib/net6.0/System.Text.Encodings.Web.dll",
+        "lib/net6.0/System.Text.Encodings.Web.xml",
+        "lib/netcoreapp3.1/System.Text.Encodings.Web.dll",
+        "lib/netcoreapp3.1/System.Text.Encodings.Web.xml",
+        "lib/netstandard2.0/System.Text.Encodings.Web.dll",
+        "lib/netstandard2.0/System.Text.Encodings.Web.xml",
+        "runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll",
+        "runtimes/browser/lib/net6.0/System.Text.Encodings.Web.xml",
+        "system.text.encodings.web.6.0.0.nupkg.sha512",
+        "system.text.encodings.web.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Text.Json/6.0.1": {
+      "sha512": "X3cTdM+jna1YyfTUzToW7aVgINFv7R1W4+1+3hua/YCyLjApPoR8fd+2Cep9DbfYjbv+rBx4K6dlmAWEJr9AHg==",
+      "type": "package",
+      "path": "system.text.json/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "analyzers/dotnet/roslyn3.11/cs/System.Text.Json.SourceGeneration.dll",
+        "analyzers/dotnet/roslyn3.11/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/de/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/es/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/it/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/System.Text.Json.SourceGeneration.dll",
+        "analyzers/dotnet/roslyn4.0/cs/cs/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/de/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/es/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/fr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/it/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ja/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ko/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pl/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pt-BR/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ru/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/tr/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hans/System.Text.Json.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
+        "build/System.Text.Json.targets",
+        "buildTransitive/netcoreapp2.0/System.Text.Json.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Text.Json.dll",
+        "lib/net461/System.Text.Json.xml",
+        "lib/net6.0/System.Text.Json.dll",
+        "lib/net6.0/System.Text.Json.xml",
+        "lib/netcoreapp3.1/System.Text.Json.dll",
+        "lib/netcoreapp3.1/System.Text.Json.xml",
+        "lib/netstandard2.0/System.Text.Json.dll",
+        "lib/netstandard2.0/System.Text.Json.xml",
+        "system.text.json.6.0.1.nupkg.sha512",
+        "system.text.json.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "MonoGame.Content.Builder.Task >= 3.8.0.1641",
+      "MonoGame.Framework.DesktopGL >= 3.8.0.1641",
+      "System.Text.Json >= 6.0.1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\anaru\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\FRI\\3.letnik\\TINR\\Platformer-CrossPlatform\\Platformer\\Platformer\\Platformer.Desktop\\Platformer.Desktop.csproj",
+      "projectName": "Platformer.Desktop",
+      "projectPath": "D:\\FRI\\3.letnik\\TINR\\Platformer-CrossPlatform\\Platformer\\Platformer\\Platformer.Desktop\\Platformer.Desktop.csproj",
+      "packagesPath": "C:\\Users\\anaru\\.nuget\\packages\\",
+      "outputPath": "D:\\FRI\\3.letnik\\TINR\\Platformer-CrossPlatform\\Platformer\\Platformer\\Platformer.Desktop\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\anaru\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
+        "dependencies": {
+          "MonoGame.Content.Builder.Task": {
+            "target": "Package",
+            "version": "[3.8.0.1641, )"
+          },
+          "MonoGame.Framework.DesktopGL": {
+            "target": "Package",
+            "version": "[3.8.0.1641, )"
+          },
+          "System.Text.Json": {
+            "target": "Package",
+            "version": "[6.0.1, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "D:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

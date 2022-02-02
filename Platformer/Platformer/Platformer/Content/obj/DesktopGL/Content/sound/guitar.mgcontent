@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/guitar.mp3</SourceFile>
+  <SourceTime>2021-12-20T20:24:48.8765375-08:00</SourceTime>
+  <DestFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/DesktopGL/Content/sound/guitar.xnb</DestFile>
+  <DestTime>2022-02-02T13:48:53.7600409-08:00</DestTime>
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2020-08-10T09:17:54-07:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2020-08-10T09:17:54-07:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/DesktopGL/Content/sound/guitar.ogg</string>
+  </BuildOutput>
+</PipelineBuildEvent>

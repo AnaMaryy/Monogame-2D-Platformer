@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/guitar.mp3","D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/DesktopGL/Content/sound/guitar.xnb","SongProcessor","SongContent",5400032,124,7.764042
+"D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/jump.wav","D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/DesktopGL/Content/sound/jump.xnb","SoundEffectProcessor","SoundEffectContent",30262,29803,1.7666295

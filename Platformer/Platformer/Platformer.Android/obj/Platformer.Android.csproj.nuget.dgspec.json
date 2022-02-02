@@ -1,0 +1,66 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\FRI\\3.letnik\\TINR\\Platformer-CrossPlatform\\Platformer\\Platformer\\Platformer.Android\\Platformer.Android.csproj": {}
+  },
+  "projects": {
+    "D:\\FRI\\3.letnik\\TINR\\Platformer-CrossPlatform\\Platformer\\Platformer\\Platformer.Android\\Platformer.Android.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\FRI\\3.letnik\\TINR\\Platformer-CrossPlatform\\Platformer\\Platformer\\Platformer.Android\\Platformer.Android.csproj",
+        "projectName": "Platformer.Android",
+        "projectPath": "D:\\FRI\\3.letnik\\TINR\\Platformer-CrossPlatform\\Platformer\\Platformer\\Platformer.Android\\Platformer.Android.csproj",
+        "packagesPath": "C:\\Users\\anaru\\.nuget\\packages\\",
+        "outputPath": "D:\\FRI\\3.letnik\\TINR\\Platformer-CrossPlatform\\Platformer\\Platformer\\Platformer.Android\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\anaru\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "monoandroid90"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "monoandroid90": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "monoandroid90": {
+          "dependencies": {
+            "MonoGame.Content.Builder.Task": {
+              "target": "Package",
+              "version": "[3.8.0.1641, )"
+            },
+            "MonoGame.Framework.Android": {
+              "target": "Package",
+              "version": "[3.8.0.1641, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "stdole": {
+              "target": "Package",
+              "version": "[17.0.32112.339, )"
+            }
+          }
+        }
+      }
+    }
+  }
+}

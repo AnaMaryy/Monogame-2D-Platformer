@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "+v7HtY83kcianphFmJNUrh4G2W/5/0eYUdDwU/Ohzum5FeG8oHqFUNDC0HzSjcAMJms/S/prnzVU9SJ/TgS4/g==",
+  "success": true,
+  "projectFilePath": "D:\\FRI\\3.letnik\\TINR\\Platformer-CrossPlatform\\Platformer\\Platformer\\Platformer.Desktop\\Platformer.Desktop.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\anaru\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
+    "C:\\Users\\anaru\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512",
+    "C:\\Users\\anaru\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\anaru\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\anaru\\.nuget\\packages\\system.text.json\\6.0.1\\system.text.json.6.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

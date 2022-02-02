@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/jump.wav</SourceFile>
+  <SourceTime>2021-12-20T19:35:22.2805186-08:00</SourceTime>
+  <DestFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/DesktopGL/Content/sound/jump.xnb</DestFile>
+  <DestTime>2022-02-02T13:48:55.5345971-08:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2020-08-10T09:17:54-07:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2020-08-10T09:17:54-07:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>
