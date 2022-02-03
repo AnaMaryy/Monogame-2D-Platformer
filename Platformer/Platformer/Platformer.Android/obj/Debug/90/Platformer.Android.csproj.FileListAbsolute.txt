@@ -282,3 +282,4 @@ D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.A
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\obj\Debug\90\android\src\crc648e5da1b02177033f\Activity1_MyUiVisibilityChangeListener.java

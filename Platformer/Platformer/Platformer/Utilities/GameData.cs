@@ -1,11 +1,12 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Platformer.Utilities
 {
-   //all the gamedata from classes and settings is stored here
+    //all the gamedata from classes and settings is stored here
     public static class GameData
 
     {
@@ -64,8 +65,8 @@ namespace Platformer.Utilities
 
         public static int InitialScreenWidth { get { return 800; } }
         public static int InitialScreenHeight { get { return 480; } }
-        public static int NumberOfLevels { get { return 2; } } 
-       
+        public static int NumberOfLevels { get { return 2; } }
+
         //sprites
         public static Dictionary<string, Texture2D> ImageSprites { get; set; }
         public static Dictionary<string, List<Texture2D>> AnimatedSprites { get; set; }
@@ -105,6 +106,12 @@ namespace Platformer.Utilities
         // for loading level data
         public static int VerticalTileNumber { get; set; } = 11;
         public static int TileSize { get { return 64; } }
+        public static int AndroidScreenHeight { get; set; }
+        public static int AndroidScreenWidth { get; set; }
+        public static Matrix MenuScaleMatrix {get;set;}
+        public static Matrix LevelScaleMatrix {get;set;}
+
+
         public static int LevelScreenHeight { get { return VerticalTileNumber * TileSize; } }
         public static int LevelScreenWidth { get { return 800; } }
 

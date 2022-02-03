@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Input.Touch;
+using Platformer.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -99,7 +101,7 @@ namespace Platformer.Controls
 
 
         }
-
+#if DESKTOP
         public override void Update(GameTime gameTime)
         {
             _previousMouse = _currentMouse;
@@ -131,6 +133,24 @@ namespace Platformer.Controls
                 }
             }
         }
+#elif ANDROID
+        public override void Update(GameTime gameTime)
+        {
+            TouchCollection touchState = TouchPanel.GetState();
+            //if new click
+            Vector2? position = TouchInput.CheckTouchSlider(RectangleSlider, touchState);
+            if (position != null) {
+                //change the ball position
+                Vector2 positionV = (Vector2)position;
+                Value = ((float)positionV.X- (float)RectangleSlider.X) / (float)RectangleSlider.Width;
+
+                PositionBall = new Vector2((Position.X - _textureSlider.Width / 2) + (Value * RectangleSlider.Width), Position.Y);
+                Click?.Invoke(this, new EventArgs());
+
+                
+            }
+        }
+#endif
         #endregion
     }
 }

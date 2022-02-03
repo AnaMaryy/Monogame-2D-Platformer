@@ -29,15 +29,19 @@ namespace Platformer.States
         {
             this.ScreenWidth = 800;
             this.ScreenHeight = 480;
-            var buttonTexture = _content.Load<Texture2D>("menu/button2");
-            Font = _content.Load<SpriteFont>("font/ThaleahFat_Normal");
-            TitleFont = _content.Load<SpriteFont>("font/ThaleahFat_Title");
-            //change width and height if values differ
+
+
+#if DESKTOP
             if (_graphicsDevice.Viewport.Width != ScreenWidth || _graphicsDevice.Viewport.Height != ScreenHeight)
             {
                 _game.ChangeScreenSize(ScreenWidth, ScreenHeight);
             }
+#endif
 
+            var buttonTexture = _content.Load<Texture2D>("menu/button2");
+            Font = _content.Load<SpriteFont>("font/ThaleahFat_Normal");
+            TitleFont = _content.Load<SpriteFont>("font/ThaleahFat_Title");
+            
             var volumeSliderTexture = _content.Load<Texture2D>("settings/VolumeSlider");
             var volumeBallTexture = _content.Load<Texture2D>("settings/VolumeBall");
 
@@ -61,7 +65,7 @@ namespace Platformer.States
 
             var backButton = new Button(buttonTexture, Font)
             {
-                Position = new Vector2(ScreenWidth / 2, 390),
+                Position = new Vector2(ScreenWidth / 2, 380),
                 Text = "Back",
             };
 
@@ -80,8 +84,8 @@ namespace Platformer.States
             if (slider != null)
             {
                 float volume = slider.Value;
-                PlayerStats.MusicVolume = volume;
-                PlayerStats.Save();
+                //PlayerStats.MusicVolume = volume;
+                //PlayerStats.Save();
             }
         }
 
@@ -91,8 +95,8 @@ namespace Platformer.States
             if (slider != null)
             {
                 float volume = slider.Value;
-                PlayerStats.SoundEffectsVolume = volume;
-                PlayerStats.Save();
+                //PlayerStats.SoundEffectsVolume = volume;
+                //PlayerStats.Save();
             }
         }
         private void Button_Back_Click(object sender, EventArgs e)
@@ -109,16 +113,35 @@ namespace Platformer.States
 
         public override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _spriteBatch));
 
-            foreach (var component in components)
+
+
+#if DESKTOP
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _spriteBatch));
+            foreach(var component in components)
                 component.Update(gameTime);
+#elif ANDROID
+            Timer();
+            if (!Start)
+            {
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                    _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _spriteBatch));
+                foreach (var component in components)
+                    component.Update(gameTime);
+            }
+#endif
         }
+    
 
         public override void Draw(GameTime gameTime)
         {
+#if DESKTOP
             _spriteBatch.Begin();
+#elif ANDROID
+            _spriteBatch.Begin(transformMatrix: GameData.MenuScaleMatrix);
+
+#endif
             SupportingFunctions.DrawBackground(GraphicsDictionary, _spriteBatch, ScreenWidth, ScreenHeight);
             var x = (ScreenWidth / 2) - (TitleFont.MeasureString("SETTINGS").X / 2);
             _spriteBatch.DrawString(TitleFont, "SETTINGS", new Vector2(x, 60), Color.Black);

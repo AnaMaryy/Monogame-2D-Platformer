@@ -15,15 +15,21 @@ namespace Platformer.States
         private List<Component> components;
 
         public SpriteFont TitleFont { get; private set; }
-        public int ScreenWidth { get; }
-        public int ScreenHeight { get; }
+        public int ScreenWidth { get; set; }
+        public int ScreenHeight { get; set; }
         private SpriteFont Font { get; set; }
 
         public DeathState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch)
       : base(game, graphicsDevice, content, spriteBatch) //menu state ima ste te parametra od svojega starsa
         {
+#if DESKTOP
             this.ScreenWidth = GameData.LevelScreenWidth;
             this.ScreenHeight = GameData.LevelScreenHeight;
+#elif ANDROID
+            this.ScreenWidth = GameData.AndroidScreenWidth;
+            this.ScreenHeight = GameData.AndroidScreenHeight;
+#endif
+
             var buttonTexture = _content.Load<Texture2D>("menu/button2");
             Font = _content.Load<SpriteFont>("font/ThaleahFat_Normal");
             TitleFont = _content.Load<SpriteFont>("font/ThaleahFat_Title");
@@ -81,7 +87,12 @@ namespace Platformer.States
 
         public override void Draw(GameTime gameTime)
         {
+#if DESKTOP
             _spriteBatch.Begin();
+#elif ANDROID
+            _spriteBatch.Begin(transformMatrix: GameData.MenuScaleMatrix);
+
+#endif
             SupportingFunctions.DrawBackground(GraphicsDictionary, _spriteBatch, ScreenWidth, ScreenHeight);
             var x = (ScreenWidth / 2) - (TitleFont.MeasureString("GAME OVER :(").X / 2);
             _spriteBatch.DrawString(TitleFont, "GAME OVER :(", new Vector2(x, 200), Color.Black);

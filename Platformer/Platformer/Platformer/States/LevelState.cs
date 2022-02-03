@@ -17,6 +17,8 @@ namespace Platformer.States
     public class LevelState : State
     {
         //private Level Level { get; set; }
+        private int ScreenWidth { get; set; }
+        private int ScreenHeight { get; set; }
 
         public LevelState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch)
       : base(game, graphicsDevice, content, spriteBatch) //menu state ima ste te parametra od svojega starsa; _game,_graphicsDevice,_content
@@ -24,8 +26,13 @@ namespace Platformer.States
             // decide which level to create -> so here for now we will create level 1
 
             //resize the screen to the level 
-            int ScreenWidth = GameData.LevelScreenWidth;
-            int ScreenHeight = GameData.LevelScreenHeight;
+#if DESKTOP
+            this.ScreenWidth = GameData.LevelScreenWidth;
+            this.ScreenHeight = GameData.LevelScreenHeight;
+#elif ANDROID
+            this.ScreenWidth = GameData.AndroidScreenWidth;
+            this.ScreenHeight = GameData.AndroidScreenHeight;
+#endif
 
             if (_graphicsDevice.Viewport.Width != ScreenWidth || _graphicsDevice.Viewport.Height != ScreenHeight)
             {

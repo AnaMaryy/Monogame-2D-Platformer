@@ -35,11 +35,13 @@ namespace Platformer.States
             this.ScreenWidth = 800;
             this.ScreenHeight = 480;
 
+
+#if DESKTOP
             if (_graphicsDevice.Viewport.Width != ScreenWidth || _graphicsDevice.Viewport.Height != ScreenHeight)
             {
                 _game.ChangeScreenSize(ScreenWidth, ScreenHeight);
             }
-
+#endif
             var playGameButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(ScreenWidth / 2, 200),
@@ -105,18 +107,38 @@ namespace Platformer.States
         }
         private void Button_Quit_Clicked(object sender, EventArgs args)
         {
+#if DESKTOP
             _game.Exit();
+#elif ANDROID
+            //TODO : entirely kill the process
+            _game.GameFinished(sender, args);
+#endif
         }
 
         public override void Update(GameTime gameTime)
         {
-            foreach (var component in components)
+
+#if DESKTOP
+            foreach(var component in components)
                 component.Update(gameTime);
+#elif ANDROID
+            Timer();
+            if (!Start)
+            {
+                foreach (var component in components)
+                    component.Update(gameTime);
+            }
+#endif
         }
 
         public override void Draw(GameTime gameTime)
         {
+#if DESKTOP
             _spriteBatch.Begin();
+#elif ANDROID
+            _spriteBatch.Begin(transformMatrix: GameData.MenuScaleMatrix);
+
+#endif
             //draw the background
             SupportingFunctions.DrawBackground(GraphicsDictionary, _spriteBatch, ScreenWidth, ScreenHeight);
             _spriteBatch.Draw(coverTexture, new Vector2(ScreenWidth / 2 + 20, 100), null, Color.White, 0f, new Vector2(coverTexture.Width / 2, coverTexture.Height / 2), 1f, SpriteEffects.None, 0f);

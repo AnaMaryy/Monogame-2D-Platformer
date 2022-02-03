@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Component.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Game1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Player.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)States\DeathState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)States\LevelState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)States\MenuState.cs" />
@@ -23,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\GameData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\PlayerStrats.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\SupportingFunctions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\TouchInput.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />

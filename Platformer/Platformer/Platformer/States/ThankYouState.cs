@@ -22,8 +22,14 @@ namespace Platformer.States
         public ThankYouState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch)
         : base(game, graphicsDevice, content, spriteBatch) //menu state ima ste te parametra od svojega starsa
         {
+#if DESKTOP
             this.ScreenWidth = GameData.LevelScreenWidth;
             this.ScreenHeight = GameData.LevelScreenHeight;
+#elif ANDROID
+            this.ScreenWidth = GameData.AndroidScreenWidth;
+            this.ScreenHeight = GameData.AndroidScreenHeight;
+#endif
+
             var buttonTexture = _content.Load<Texture2D>("menu/button2");
             Font = _content.Load<SpriteFont>("font/ThaleahFat_Normal");
             TitleFont = _content.Load<SpriteFont>("font/ThaleahFat_Title");

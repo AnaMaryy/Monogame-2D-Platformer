@@ -20,25 +20,38 @@ namespace Platformer
         private State _currentState;
         private State _nextState;
 
-       
+        public Action<object, object> GameFinished { get; internal set; }
 
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            //for some reason resize window + title  needs to be here :) love them bugs 
             Window.Title = "Charlie's Adventures";
-            _graphics.IsFullScreen = false;
+
+#if DEKSTOP
             _graphics.PreferredBackBufferWidth =GameData.InitialScreenWidth;  // set this value to the desired width of your window
             _graphics.PreferredBackBufferHeight = GameData.InitialScreenHeight;   // set this value to the desired height of your window
-            Trace.WriteLine(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
-            Trace.WriteLine(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width);
+            _graphics.IsFullScreen = false;
+#elif ANDROID
+            GameData.AndroidScreenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            GameData.AndroidScreenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            _graphics.PreferredBackBufferWidth =GameData.AndroidScreenWidth;
+            _graphics.PreferredBackBufferHeight = GameData.AndroidScreenHeight;
+
+
+            float scale_wid = (float)GameData.AndroidScreenWidth / GameData.InitialScreenWidth;
+            float scale_hei = (float)GameData.AndroidScreenHeight / GameData.InitialScreenHeight;
+            GameData.MenuScaleMatrix = Matrix.CreateScale(scale_wid, scale_hei, 1.0f);
+
+            float scale_width = (float)GameData.AndroidScreenWidth / GameData.LevelScreenWidth;
+            float scale_height = (float)GameData.AndroidScreenHeight / GameData.LevelScreenHeight;
+            GameData.LevelScaleMatrix = Matrix.CreateScale(scale_width, scale_height, 1.0f);
+#endif
+
             _graphics.ApplyChanges();
 
             IsMouseVisible = true;
@@ -51,11 +64,12 @@ namespace Platformer
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             
+            /*
             //loads the settings and playerstats
             if (PlayerStats.SaveExist())
             {
                 PlayerStats.Load();
-            }
+            }*/
 
 
             //start in the menu state

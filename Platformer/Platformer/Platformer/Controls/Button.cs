@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Input.Touch;
+using Platformer.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -86,7 +88,7 @@ namespace Platformer.Controls
 
             }
         }
-
+#if DESKTOP
         public override void Update(GameTime gameTime)
         {
             _previousMouse = _currentMouse;
@@ -111,6 +113,17 @@ namespace Platformer.Controls
                 }
             }
         }
+#elif ANDROID
+        public override void Update(GameTime gameTime)
+        {
+
+            TouchCollection touchState = TouchPanel.GetState();
+            //if new click
+            if (TouchInput.CheckTouch(Rectangle, touchState)) {           
+                Click?.Invoke(this, new EventArgs());
+            }
+        }
+#endif
         #endregion
     }
 }

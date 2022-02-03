@@ -22,11 +22,17 @@ namespace Platformer.States
         public NextLevelState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch)
       : base(game, graphicsDevice, content, spriteBatch) //menu state ima ste te parametra od svojega starsa
         {
-            this.ScreenWidth = GameData.LevelScreenWidth;
-            this.ScreenHeight = GameData.LevelScreenHeight;
+           
             var buttonTexture = _content.Load<Texture2D>("menu/button2");
             Font = _content.Load<SpriteFont>("font/ThaleahFat_Normal");
             TitleFont = _content.Load<SpriteFont>("font/ThaleahFat_Title");
+#if DESKTOP
+            this.ScreenWidth = GameData.LevelScreenWidth;
+            this.ScreenHeight = GameData.LevelScreenHeight;
+#elif ANDROID
+            this.ScreenWidth = GameData.AndroidScreenWidth;
+            this.ScreenHeight = GameData.AndroidScreenHeight;
+#endif
             //change width and height if values differ
             if (_graphicsDevice.Viewport.Width != ScreenWidth || _graphicsDevice.Viewport.Height != ScreenHeight)
             {
