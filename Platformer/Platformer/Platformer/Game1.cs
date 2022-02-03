@@ -2,8 +2,12 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Platformer.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using Platformer.States;
+
 
 namespace Platformer
 {
@@ -13,8 +17,8 @@ namespace Platformer
         private SpriteBatch _spriteBatch;
         //private Level level1;
         //track states
-        //private State _currentState;
-        //private State _nextState;
+        private State _currentState;
+        private State _nextState;
 
        
 
@@ -46,7 +50,7 @@ namespace Platformer
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            /*
+            
             //loads the settings and playerstats
             if (PlayerStats.SaveExist())
             {
@@ -58,7 +62,7 @@ namespace Platformer
             _currentState = new MenuState(this, GraphicsDevice, Content, _spriteBatch);
             _currentState.LoadContent();
             _nextState = null;
-            */
+            
             //loads all image sprites
 
             GameData.ImageSprites = new Dictionary<string, Texture2D>();
@@ -87,6 +91,7 @@ namespace Platformer
             GameData.AnimatedSprites.Add("effects/explosion", SupportingFunctions.ImportFolder("game/effects/explosion", "../../../../Platformer/Content/game/effects/explosion", Content));
             GameData.AnimatedSprites.Add("human/idle", SupportingFunctions.ImportFolder("game/human/idle", "../../../../Platformer/Content/game/human/idle", Content));
 #elif ANDROID
+
             foreach (var item in GameData.AndroidAnimatedSprites)
             {
                 GameData.AnimatedSprites.Add(item.Key, SupportingFunctions.ImportFolder(item.Key,item.Value, Content));
@@ -99,8 +104,7 @@ namespace Platformer
 
         protected override void Update(GameTime gameTime)
         {
-            /*
-            // TODO: Add your update logic here
+            
             if(_nextState != null)
             {
                 _currentState = _nextState;
@@ -110,10 +114,10 @@ namespace Platformer
             }
             _currentState.Update(gameTime);
             
-            */
+            
             base.Update(gameTime);
         }
-        /*
+        
         public void ChangeState(State state)
         {
             _nextState = state;
@@ -123,15 +127,13 @@ namespace Platformer
             _graphics.PreferredBackBufferWidth = width;  
             _graphics.PreferredBackBufferHeight = height;   
             _graphics.ApplyChanges();
-        }*/
+        }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            // _currentState.Draw(gameTime);
-            _spriteBatch.Begin();
-            _spriteBatch.Draw(GameData.AnimatedSprites["enemies/enemyHorizontal/run"][0], new Vector2(20, 02), Color.White);
-            _spriteBatch.End();
+            _currentState.Draw(gameTime);
+           
             base.Draw(gameTime);
         }
 

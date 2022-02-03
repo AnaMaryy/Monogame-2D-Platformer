@@ -9,8 +9,19 @@
     <Import_RootNamespace>Platformer</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Button.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Component.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Game1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)States\DeathState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)States\LevelState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)States\MenuState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)States\NextLevelState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)States\SettingsState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)States\State.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)States\ThankYouState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\GameData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\PlayerStrats.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\SupportingFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
