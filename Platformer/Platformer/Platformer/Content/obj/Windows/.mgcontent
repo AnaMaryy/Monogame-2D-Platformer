@@ -4,141 +4,167 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/font/ThaleahFat.spritefont</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/font/ThaleahFat_Normal.spritefont</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/font/ThaleahFat_Title.spritefont</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/background/cloudBackground800.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/background/plx1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/background/plx2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/background/plx3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/background/plx4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/background/plx5.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-0.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-5.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/coins/gold/0.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/coins/gold/1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/coins/gold/2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/coins/gold/3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/coins/silver/0.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/coins/silver/1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/coins/silver/2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/coins/silver/3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/decoration/clouds/1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/decoration/clouds/2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/decoration/clouds/3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/decoration/grass/grass.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/decoration/leaves/leavesPurple.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/decoration/sky/sky_bottom.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/decoration/sky/sky_middle.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/decoration/sky/sky_top.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/decoration/water/1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/decoration/water/2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/decoration/water/3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/decoration/water/4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/fall/Fall 01.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/fall/Fall 02.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/fall/Fall 03.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/fall/Fall 04.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/fall/Fall 05.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/jump/Jump 01.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/jump/Jump 02.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/jump/Jump 03.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/jump/Jump 04.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/jump/Jump 05.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/run/Run01.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/run/Run02.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/run/Run03.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/run/Run04.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/dust/run/Run05.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/fall/fall_1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/fall/fall_2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/fall/fall_3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/fall/fall_4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/fall/fall_5.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/idle1/idle_1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/idle1/idle_2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/idle1/idle_3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/idle1/idle_4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/idle1/idle_5.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/jump/jump_1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/jump/jump_2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/jump/jump_3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/jump/jump_4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/jump/jump_5.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/jump/jump_6.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/run/run_1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/run/run_2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/run/run_3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/run/run_4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/run/run_5.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/run/run_6.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/run/run_7.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/run/run_8.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/sniff/sniff1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/sniff/sniff2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/sniff/sniff4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/effects/explosion/1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/effects/explosion/2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/effects/explosion/3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/effects/explosion/4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/effects/explosion/5.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/effects/explosion/6.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/effects/explosion/7.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/enemies/enemyBoss/idle/idle1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/enemies/enemyBoss/idle/idle2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/enemies/enemyBoss/idle/idle3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/enemies/enemyBoss/idle/idle4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/enemies/enemyHorizontal/run/Meow-Knight_Run_1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/enemies/enemyHorizontal/run/Meow-Knight_Run_2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/enemies/enemyHorizontal/run/Meow-Knight_Run_3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/enemies/enemyHorizontal/run/Meow-Knight_Run_4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/enemies/enemyVertical/jump/Meow-Knight_Jump1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/enemies/enemyVertical/jump/Meow-Knight_Jump2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/enemies/enemyVertical/jump/Meow-Knight_Jump3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/enemies/enemyVertical/jump/Meow-Knight_Jump4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/Block1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/constraint.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/crate.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/final_tileset.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/palm_bg/bg_palm_1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/palm_bg/bg_palm_2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/palm_bg/bg_palm_3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/palm_bg/bg_palm_4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/palm_large/large_1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/palm_large/large_2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/palm_large/large_3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/palm_large/large_4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/palm_small/small_1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/palm_small/small_2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/palm_small/small_3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/env/palm_small/small_4.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/gui/bone64x.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/gui/Heart.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/gui/HeartGui.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/hearts/heart1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/hearts/heart3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/human/idle/FinnSprite.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/human/idle/FinnSprite1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/human/idle/FinnSprite3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/menu/Additional Sky.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/menu/BG Image.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/menu/Big Clouds.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/menu/button2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/menu/cover.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/menu/Small Cloud 1.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/menu/SmallCloud2.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/menu/SmallCloud3.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/settings/VolumeBall.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/settings/VolumeSlider.png</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/sound/bark.wav</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/sound/guitar.mp3</File>
-    <File>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/sound/jump.wav</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/font/ThaleahFat.spritefont</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/font/ThaleahFat_Normal.spritefont</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/font/ThaleahFat_Title.spritefont</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/background/backgroundBottom.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/background/backgroundBottom1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/background/backgroundBottom2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/background/backgroundTop.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/background/cloudBackground800.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/background/plx1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/background/plx2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/background/plx3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/background/plx4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/background/plx5.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/background/waterFront.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-0.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-5.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/coins/gold/0.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/coins/gold/1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/coins/gold/2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/coins/gold/3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/coins/silver/0.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/coins/silver/1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/coins/silver/2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/coins/silver/3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/decoration/clouds/1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/decoration/clouds/2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/decoration/clouds/3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/decoration/grass/grass.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/decoration/leaves/leavesPurple.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/decoration/sky/sky_bottom.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/decoration/sky/sky_middle.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/decoration/sky/sky_top.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/decoration/water/1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/decoration/water/2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/decoration/water/3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/decoration/water/4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/fall/Fall 01.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/fall/Fall 02.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/fall/Fall 03.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/fall/Fall 04.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/fall/Fall 05.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/jump/Jump 01.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/jump/Jump 02.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/jump/Jump 03.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/jump/Jump 04.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/jump/Jump 05.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/run/Run01.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/run/Run02.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/run/Run03.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/run/Run04.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/dust/run/Run05.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/fall/fall_1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/fall/fall_2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/fall/fall_3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/fall/fall_4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/fall/fall_5.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/idle1/idle_1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/idle1/idle_2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/idle1/idle_3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/idle1/idle_4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/idle1/idle_5.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/jump/jump_1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/jump/jump_2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/jump/jump_3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/jump/jump_4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/jump/jump_5.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/jump/jump_6.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/run/run_1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/run/run_2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/run/run_3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/run/run_4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/run/run_5.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/run/run_6.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/run/run_7.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/run/run_8.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/sniff/sniff1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/sniff/sniff2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/sniff/sniff4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/effects/explosion/1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/effects/explosion/2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/effects/explosion/3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/effects/explosion/4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/effects/explosion/5.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/effects/explosion/6.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/effects/explosion/7.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/enemies/enemyBoss/idle/idle1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/enemies/enemyBoss/idle/idle2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/enemies/enemyBoss/idle/idle3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/enemies/enemyBoss/idle/idle4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/enemies/enemyHorizontal/run/Meow-Knight_Run_1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/enemies/enemyHorizontal/run/Meow-Knight_Run_2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/enemies/enemyHorizontal/run/Meow-Knight_Run_3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/enemies/enemyHorizontal/run/Meow-Knight_Run_4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/enemies/enemyVertical/jump/Meow-Knight_Jump1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/enemies/enemyVertical/jump/Meow-Knight_Jump2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/enemies/enemyVertical/jump/Meow-Knight_Jump3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/enemies/enemyVertical/jump/Meow-Knight_Jump4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/Block1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/constraint.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/crate.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/final_tileset.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/palm_bg/bg_palm_1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/palm_bg/bg_palm_2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/palm_bg/bg_palm_3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/palm_bg/bg_palm_4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/palm_large/large_1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/palm_large/large_2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/palm_large/large_3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/palm_large/large_4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/palm_small/small_1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/palm_small/small_2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/palm_small/small_3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/env/palm_small/small_4.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/gui/bone64x.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/gui/Heart.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/gui/HeartGui.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/hearts/heart1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/hearts/heart3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/human/idle/FinnSprite.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/human/idle/FinnSprite1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/human/idle/FinnSprite3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/Additional Sky.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/BG Image.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/Big Clouds.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/button2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/cover.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/Small Cloud 1.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/SmallCloud2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/SmallCloud3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/settings/VolumeBall.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/settings/VolumeSlider.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/africanSong.mp3</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/bone.wav</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/coin.wav</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/goldCoin.wav</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/guitar.mp3</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/heart.wav</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/hit.wav</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/jump.wav</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/silverCoin.wav</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/stomp.wav</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/win.wav</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

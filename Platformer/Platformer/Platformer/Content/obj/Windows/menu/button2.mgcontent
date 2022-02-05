@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/menu/button2.png</SourceFile>
+  <SourceFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/button2.png</SourceFile>
   <SourceTime>2021-12-25T16:12:13.6277001-08:00</SourceTime>
-  <DestFile>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/bin/Windows/menu/button2.xnb</DestFile>
-  <DestTime>2022-01-30T11:10:14.6398283-08:00</DestTime>
+  <DestFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/Windows/menu/button2.xnb</DestFile>
+  <DestTime>2022-02-05T11:36:47.9238367-08:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T09:17:54-07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/sound/guitar.mp3</SourceFile>
+  <SourceFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/guitar.mp3</SourceFile>
   <SourceTime>2021-12-20T20:24:48.8765375-08:00</SourceTime>
-  <DestFile>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/bin/Windows/sound/guitar.xnb</DestFile>
-  <DestTime>2022-01-30T11:10:19.2624967-08:00</DestTime>
+  <DestFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/Windows/sound/guitar.xnb</DestFile>
+  <DestTime>2022-02-05T11:36:58.0303629-08:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2020-08-10T09:17:54-07:00</ImporterTime>
   <Processor>SongProcessor</Processor>
@@ -15,6 +15,6 @@
   <Dependencies />
   <BuildAsset />
   <BuildOutput>
-    <string>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/bin/Windows/sound/guitar.wma</string>
+    <string>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/Windows/sound/guitar.wma</string>
   </BuildOutput>
 </PipelineBuildEvent>

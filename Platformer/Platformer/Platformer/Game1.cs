@@ -7,7 +7,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using Platformer.States;
-
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 namespace Platformer
 {
@@ -37,19 +38,21 @@ namespace Platformer
             _graphics.PreferredBackBufferHeight = GameData.InitialScreenHeight;   // set this value to the desired height of your window
             _graphics.IsFullScreen = false;
 #elif ANDROID
-            GameData.AndroidScreenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-            GameData.AndroidScreenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-            _graphics.PreferredBackBufferWidth =GameData.AndroidScreenWidth;
-            _graphics.PreferredBackBufferHeight = GameData.AndroidScreenHeight;
+            GameData.AndroidScreenWidth = _graphics.GraphicsDevice.Viewport.Width;
+            GameData.AndroidScreenHeight = _graphics.GraphicsDevice.Viewport.Height;
+            //_graphics.PreferredBackBufferWidth =GameData.AndroidScreenWidth;
+            //_graphics.PreferredBackBufferHeight = GameData.AndroidScreenHeight;
 
 
-            float scale_wid = (float)GameData.AndroidScreenWidth / GameData.InitialScreenWidth;
-            float scale_hei = (float)GameData.AndroidScreenHeight / GameData.InitialScreenHeight;
+            var scale_wid = (float)GameData.AndroidScreenWidth / GameData.InitialScreenWidth;
+            var scale_hei = (float)GameData.AndroidScreenHeight / GameData.InitialScreenHeight;
             GameData.MenuScaleMatrix = Matrix.CreateScale(scale_wid, scale_hei, 1.0f);
 
-            float scale_width = (float)GameData.AndroidScreenWidth / GameData.LevelScreenWidth;
-            float scale_height = (float)GameData.AndroidScreenHeight / GameData.LevelScreenHeight;
+             var scale_width = (float)GameData.AndroidScreenWidth / GameData.LevelScreenWidth;
+            var scale_height = (float)GameData.AndroidScreenHeight / GameData.LevelScreenHeight;
             GameData.LevelScaleMatrix = Matrix.CreateScale(scale_width, scale_height, 1.0f);
+            //var r = GraphicsDevice.Viewport.Bounds;
+            //GameData.LevelScaleMatrix = Matrix.Identity * Matrix.CreateScale(r.Width / GameData.LevelScreenWidth, r.Height / GameData.LevelScreenHeight, 0f);
 #endif
 
             _graphics.ApplyChanges();
@@ -76,37 +79,57 @@ namespace Platformer
             _currentState = new MenuState(this, GraphicsDevice, Content, _spriteBatch);
             _currentState.LoadContent();
             _nextState = null;
-            
-            //loads all image sprites
+            //load all sound effects
+            GameData.SoundEffects = new Dictionary<string, SoundEffect>();
+#if DESKTOP
+            GameData.SoundEffects.Add("jump", Content.Load<SoundEffect>("../../../../Content/sound/jump"));
+            GameData.SoundEffects.Add("bone", Content.Load<SoundEffect>("../../../../Content/sound/bone"));
+            GameData.SoundEffects.Add("goldCoin", Content.Load<SoundEffect>("../../../../Content/sound/goldCoin"));
+            GameData.SoundEffects.Add("silverCoin", Content.Load<SoundEffect>("../../../../Content/sound/silverCoin"));
+            GameData.SoundEffects.Add("stomp", Content.Load<SoundEffect>("../../../../Content/sound/stomp"));
+            GameData.SoundEffects.Add("hit", Content.Load<SoundEffect>("../../../../Content/sound/hit"));
+            GameData.SoundEffects.Add("win", Content.Load<SoundEffect>("../../../../Content/sound/win"));
+            GameData.SoundEffects.Add("heart", Content.Load<SoundEffect>("../../../../Content/sound/heart"));
+#elif ANDROID
+            GameData.SoundEffects.Add("jump", Content.Load<SoundEffect>("sound/jump"));
+            GameData.SoundEffects.Add("bone", Content.Load<SoundEffect>("sound/bone"));
+            GameData.SoundEffects.Add("goldCoin", Content.Load<SoundEffect>("sound/goldCoin"));
+            GameData.SoundEffects.Add("silverCoin", Content.Load<SoundEffect>("sound/silverCoin"));
+            GameData.SoundEffects.Add("stomp", Content.Load<SoundEffect>("sound/stomp"));
+            GameData.SoundEffects.Add("hit", Content.Load<SoundEffect>("sound/hit"));
+            GameData.SoundEffects.Add("win", Content.Load<SoundEffect>("sound/win"));
+            GameData.SoundEffects.Add("heart", Content.Load<SoundEffect>("sound/heart"));
+#endif
+            //load all songs
+            GameData.Songs = new Dictionary<string, Song>();
+            GameData.Songs.Add("0", Content.Load<Song>("sound/africanSong"));
 
+            //loads all image sprites
             GameData.ImageSprites = new Dictionary<string, Texture2D>();
             GameData.ImageSprites.Add("terrain", Content.Load<Texture2D>("game/env/final_tileset"));
-
-
             GameData.ImageSprites.Add("constraint", Content.Load<Texture2D>("game/env/constraint"));
             GameData.ImageSprites.Add("grass", Content.Load<Texture2D>("game/decoration/grass/grass"));
             GameData.ImageSprites.Add("leavesPurple", Content.Load<Texture2D>("game/decoration/leaves/leavesPurple"));
             GameData.ImageSprites.Add("crate", Content.Load<Texture2D>("game/env/crate"));
             GameData.ImageSprites.Add("singleHeart", Content.Load<Texture2D>("game/hearts/heart1"));
             GameData.ImageSprites.Add("backgroundClouds", Content.Load<Texture2D>("game/background/cloudBackground800"));
+            GameData.ImageSprites.Add("backgroundSky", Content.Load<Texture2D>("game/background/backgroundTop"));
+            GameData.ImageSprites.Add("backgroundBottom", Content.Load<Texture2D>("game/background/backgroundBottom2"));
+            GameData.ImageSprites.Add("waterFront", Content.Load<Texture2D>("game/background/waterFront"));
+
+            //load all animated image sprites
 
             GameData.AnimatedSprites = new Dictionary<string, List<Texture2D>>();
 #if DESKTOP
-            GameData.AnimatedSprites.Add("enemies/enemyHorizontal/run", SupportingFunctions.ImportFolder("game/enemies/enemyHorizontal/run", "../../../../Platformer/Content/game/enemies/enemyHorizontal/run", Content));
-            GameData.AnimatedSprites.Add("enemies/enemyVertical/jump", SupportingFunctions.ImportFolder("game/enemies/enemyVertical/jump", "../../../../Platformer/Content/game/enemies/enemyVertical/jump", Content));
-            GameData.AnimatedSprites.Add("enemies/enemyBoss/idle", SupportingFunctions.ImportFolder("game/enemies/enemyBoss/idle", "../../../../Platformer/Content/game/enemies/enemyBoss/idle", Content));
-            GameData.AnimatedSprites.Add("coins/gold", SupportingFunctions.ImportFolder("game/coins/gold", "../../../../Platformer/Content/game/coins/gold", Content));
-            GameData.AnimatedSprites.Add("coins/silver", SupportingFunctions.ImportFolder("game/coins/silver", "../../../../Platformer/Content/game/coins/silver", Content));
-            GameData.AnimatedSprites.Add("env/palm_small", SupportingFunctions.ImportFolder("game/env/palm_small", "../../../../Platformer/Content/game/env/palm_small", Content));
-            GameData.AnimatedSprites.Add("env/palm_large", SupportingFunctions.ImportFolder("game/env/palm_large", "../../../../Platformer/Content/game/env/palm_large", Content));
-            GameData.AnimatedSprites.Add("env/palm_bg", SupportingFunctions.ImportFolder("game/env/palm_bg", "../../../../Platformer/Content/game/env/palm_bg", Content));
-            GameData.AnimatedSprites.Add("bone", SupportingFunctions.ImportFolder("game/bone", "../../../../Platformer/Content/game/bone", Content));
-            GameData.AnimatedSprites.Add("hearts", SupportingFunctions.ImportFolder("game/hearts", "../../../../Platformer/Content/game/hearts", Content));
-            GameData.AnimatedSprites.Add("effects/explosion", SupportingFunctions.ImportFolder("game/effects/explosion", "../../../../Platformer/Content/game/effects/explosion", Content));
-            GameData.AnimatedSprites.Add("human/idle", SupportingFunctions.ImportFolder("game/human/idle", "../../../../Platformer/Content/game/human/idle", Content));
+            foreach (var item in GameData.NamesAnimatedSprites)
+            {
+                GameData.AnimatedSprites.Add(item.Key,  SupportingFunctions.ImportFolder("game/" +item.Key, "../../../../Platformer/Content/game/" +item.Key, Content));
+
+            }
+
 #elif ANDROID
 
-            foreach (var item in GameData.AndroidAnimatedSprites)
+            foreach (var item in GameData.NamesAnimatedSprites)
             {
                 GameData.AnimatedSprites.Add(item.Key, SupportingFunctions.ImportFolder(item.Key,item.Value, Content));
 

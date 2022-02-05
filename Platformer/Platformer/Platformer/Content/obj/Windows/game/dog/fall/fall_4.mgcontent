@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/game/dog/fall/fall_4.png</SourceFile>
+  <SourceFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/dog/fall/fall_4.png</SourceFile>
   <SourceTime>2021-11-16T15:33:38.641845-08:00</SourceTime>
-  <DestFile>D:/FRI/3.letnik/TINR/Platformer/Platformer/Platformer/Content/bin/Windows/game/dog/fall/fall_4.xnb</DestFile>
-  <DestTime>2022-01-30T11:10:13.9874805-08:00</DestTime>
+  <DestFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/Windows/game/dog/fall/fall_4.xnb</DestFile>
+  <DestTime>2022-02-05T11:36:47.2165676-08:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T09:17:54-07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

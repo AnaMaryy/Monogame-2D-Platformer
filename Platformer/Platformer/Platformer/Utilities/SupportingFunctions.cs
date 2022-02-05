@@ -40,12 +40,12 @@ namespace Platformer
 
         }
 #if DESKTOP
-        public static List<string[]> ImportCvsLayout(string path)///parses a cvs file
+        public static List<string[]> ImportCvsLayout(string path,ContentManager content)///parses a cvs file
         {
             //this is a retarded solution -> basically to accuratly read the csv files
             //you have to move up into the project, because you have to give the TextFieldParser the full path
             var dir = AppDomain.CurrentDomain.BaseDirectory;
-            dir += "//..//..//..//";
+            dir += "//..//..//..//..//Platformer//";
             using (Microsoft.VisualBasic.FileIO.TextFieldParser parser = new Microsoft.VisualBasic.FileIO.TextFieldParser(dir+path))
             {
                 List<string[]> terrainMap = new List<string[]>();
@@ -89,19 +89,31 @@ namespace Platformer
 #endif
 
 #if ANDROID
-        public static List<string[]> ImportCvsLayout(string path)///parses a cvs file
+        public static List<string[]> ImportCvsLayout(string path,ContentManager content)///parses a cvs file
         {
-            var dir = AppDomain.CurrentDomain.BaseDirectory;
-            dir += "//..//..//..//";
-            StreamReader sr = new StreamReader(dir+path);
-            List<string[]> terrainMap = new List<string[]>();
 
-            string line;
-            while ((line = sr.ReadLine()) != null)
+
+            //var filePath = Path.Combine(content.RootDirectory, "levelData/0/level_0_player.csv");
+
+            string file = FirstCharToLowerCase(path);
+            
+            var filePath = Path.Combine(content.RootDirectory, file);
+
+            Trace.WriteLine("path: " + file);
+
+            List<string[]> terrainMap = new List<string[]>();
+            using (Stream stream = TitleContainer.OpenStream(@filePath))
             {
-                string[] row = line.Split(',');
-                terrainMap.Add(row);
+                StreamReader sr = new StreamReader(stream);
+
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] row = line.Split(',');
+                    terrainMap.Add(row);
+                }
             }
+               
             return terrainMap;
 
         }
@@ -141,6 +153,13 @@ namespace Platformer
 
             return background;
 
+        }
+        public static string FirstCharToLowerCase(string str)
+        {
+            if (string.IsNullOrEmpty(str) || char.IsLower(str[0]))
+                return str;
+
+            return char.ToLower(str[0]) + str.Substring(1);
         }
         //draws the background of mainmenu and settings; returns the value of layer
         public static void DrawBackground(Dictionary<string, Texture2D> images,SpriteBatch spriteBatch,int width, int height )

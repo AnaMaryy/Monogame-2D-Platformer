@@ -10,13 +10,14 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using MonoGame;
 using Platformer.Controls;
+using Platformer.Models;
 using Platformer.Utilities;
 
 namespace Platformer.States
 {
     public class LevelState : State
     {
-        //private Level Level { get; set; }
+        private Level Level { get; set; }
         private int ScreenWidth { get; set; }
         private int ScreenHeight { get; set; }
 
@@ -60,7 +61,7 @@ namespace Platformer.States
         {
             //create the level
             var levelData = SwitchLevel();
-            //Level = new Level(_game, _spriteBatch, _graphicsDevice, _content, levelData); ;
+            Level = new Level(_game, _spriteBatch, _graphicsDevice, _content, levelData); 
         }
 
         public override void Update(GameTime gameTime)
@@ -72,7 +73,7 @@ namespace Platformer.States
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _spriteBatch));
 
             }
-            //Level.Update();
+            Level.Update();
 
 
         }
@@ -80,7 +81,7 @@ namespace Platformer.States
         public override void Draw(GameTime gameTime)
         {
 
-            //Level.Draw();
+            Level.Draw();
         }
     }
 }

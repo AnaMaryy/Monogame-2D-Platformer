@@ -4,6 +4,6 @@
     <SelectedDevice>OnePlus EB2103</SelectedDevice>
     <ActiveDebugProfile>OnePlus EB2103</ActiveDebugProfile>
     <DefaultDevice>galaxy_nexus_pie_9_0_-_api_28</DefaultDevice>
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
 </Project>

@@ -147,7 +147,6 @@ D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.A
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\bin\AnyCPU\Debug\Platformer.Android.Platformer.Android-Signed.aab
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\bin\AnyCPU\Debug\Platformer.Android.Platformer.Android-Signed.apk
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\bin\AnyCPU\Debug\Platformer.Android.Platformer.Android-Signed.apk.idsig
-D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\bin\AnyCPU\Debug\Platformer.Android.dll.mdb
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\obj\Debug\90\build.props
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\obj\Debug\90\adb.props
@@ -283,3 +282,9 @@ D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.A
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\obj\Debug\90\android\src\crc648e5da1b02177033f\Activity1_MyUiVisibilityChangeListener.java
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\obj\Debug\90\android\assets\Microsoft.CSharp.dll
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\obj\Debug\90\android\assets\Microsoft.CSharp.pdb
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\obj\Debug\90\android\assets\Platformer.Android.pdb
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\bin\AnyCPU\Debug\LevelData\0\level_0_player.csv
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\bin\AnyCPU\Debug\Content\bin\Android\Content\LevelData\0\level_0_player.csv
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Android\bin\AnyCPU\Debug\Content\bin\Android\Content\LevelData\0\level_0_leaves.csv

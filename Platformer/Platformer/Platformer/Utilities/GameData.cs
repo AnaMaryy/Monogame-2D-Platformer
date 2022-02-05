@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -63,42 +65,75 @@ namespace Platformer.Utilities
             }
         }
 
-        public static int InitialScreenWidth { get { return 800; } }
-        public static int InitialScreenHeight { get { return 480; } }
+        
+       
         public static int NumberOfLevels { get { return 2; } }
 
         //sprites
         public static Dictionary<string, Texture2D> ImageSprites { get; set; }
         public static Dictionary<string, List<Texture2D>> AnimatedSprites { get; set; }
-        public static Dictionary<string, string[]> AndroidAnimatedSprites  // this is a retarded solution -> android cannot get file names from directory, therfore all file names will be listed as values , the key is the folder name : )
+        public static Dictionary<string, SoundEffect> SoundEffects { get; set; }
+        public static Dictionary<string, Song> Songs { get; set; }
+        public static Dictionary<string, string[]> NamesAnimatedSprites  // this is a retarded solution -> android cannot get file names from directory, therfore all file names will be listed as values , the key is the folder name : )
         {
             get
             {
                 return new Dictionary<string, string[]>
                 {
-                    { "enemies/enemyHorizontal/run" , new string[] {"Meow-Knight_Run_1" , "Meow-Knight_Run_2" , "Meow-Knight_Run_3" , "Meow-Knight_Run_4"  }},
+                    
+               { "enemies/enemyHorizontal/run" , new string[] {"Meow-Knight_Run_1" , "Meow-Knight_Run_2" , "Meow-Knight_Run_3" , "Meow-Knight_Run_4"  }},
 
-                    { "enemies/enemyVertical/jump" , new string[] {"Meow-Knight_Jump1" , "Meow-Knight_Jump2" , "Meow-Knight_Jump3" , "Meow-Knight_Jump4"  }},
 
-                    { "enemies/enemyBoss/idle" , new string[] {"idle1" , "idle2" , "idle3" , "idle4"  }},
+               { "enemies/enemyVertical/jump" , new string[] {"Meow-Knight_Jump1" , "Meow-Knight_Jump2" , "Meow-Knight_Jump3" , "Meow-Knight_Jump4"  }},
 
-                    { "coins/gold" , new string[] {"0" , "1" , "2" , "3"  }},
+               
+               { "enemies/enemyBoss/idle" , new string[] {"idle1" , "idle2" , "idle3" , "idle4"  }},
 
-                    { "coins/silver" , new string[] {"0" , "1" , "2" , "3"  }},
+               { "coins/gold" , new string[] {"0" , "1" , "2" , "3"  }},
 
-                    { "env/palm_small" , new string[] {"small_1" , "small_2" , "small_3" , "small_4"  }},
+               { "coins/silver" , new string[] {"0" , "1" , "2" , "3"  }},
 
-                    { "env/palm_large" , new string[] {"large_1" , "large_2" , "large_3" , "large_4"  }},
+               { "env/palm_small" , new string[] {"small_1" , "small_2" , "small_3" , "small_4"  }},
 
-                    { "env/palm_bg" , new string[] {"bg_palm_1" , "bg_palm_2" , "bg_palm_3" , "bg_palm_4"  }},
+               { "env/palm_large" , new string[] {"large_1" , "large_2" , "large_3" , "large_4"  }},
 
-                    { "bone" , new string[] {"pixil-frame-0" , "pixil-frame-1" , "pixil-frame-2" , "pixil-frame-3" , "pixil-frame-4" , "pixil-frame-5" }},
+               { "env/palm_bg" , new string[] {"bg_palm_1" , "bg_palm_2" , "bg_palm_3" , "bg_palm_4"  }},
 
-                    { "hearts" , new string[] {"heart1" , "heart3"  }},
 
-                    { "effects/explosion" , new string[] {"1" , "2" , "3" , "4" , "5" , "6" , "7"  }},
+               { "bone" , new string[] {"pixil-frame-0" , "pixil-frame-1" , "pixil-frame-2" , "pixil-frame-3" , "pixil-frame-4" , "pixil-frame-5" }},
 
-                    { "human/idle" , new string[] {"FinnSprite" , "FinnSprite1" , "FinnSprite3"  }},
+               { "hearts" , new string[] {"heart1" , "heart3"  }},
+
+               { "effects/explosion" , new string[] {"1" , "2" , "3" , "4" , "5" , "6" , "7"  }},
+
+
+               { "human/idle" , new string[] {"FinnSprite" , "FinnSprite1" , "FinnSprite3"  }},
+                    
+
+               { "decoration/water" , new string[] {"1" , "2" , "3" , "4"  }},
+
+               { "decoration/clouds" , new string[] {"1" , "2" , "3"   }},
+
+               { "dog/jump" , new string[] {"jump_1", "jump_2","jump_3","jump_4","jump_5","jump_6", }},
+
+
+               { "dog/fall" , new string[] {"fall_1" , "fall_2" ,"fall_3" ,"fall_4" ,"fall_5"  }},
+
+               { "dog/sniff" , new string[] {"sniff1","sniff2","sniff4" }},
+
+
+               { "dog/idle1" , new string[] {"idle_1","idle_2","idle_3","idle_4","idle_5"  }},
+
+               { "dog/run" , new string[] {"run_1","run_2","run_3","run_4","run_5","run_6","run_7","run_8",   }},
+
+               { "dog/dust/run" , new string[] {"Run01","Run02","Run03","Run04","Run05"  }},
+
+               { "dog/dust/jump" , new string[] {"Jump 01","Jump 02","Jump 03","Jump 04","Jump 05"  }},
+
+               { "dog/dust/fall" , new string[] {"Fall 01", "Fall 02", "Fall 03", "Fall 04", "Fall 05"  }},
+
+             
+
 
                 };
             }
@@ -111,9 +146,15 @@ namespace Platformer.Utilities
         public static Matrix MenuScaleMatrix {get;set;}
         public static Matrix LevelScaleMatrix {get;set;}
 
-
+#if DESKTOP
         public static int LevelScreenHeight { get { return VerticalTileNumber * TileSize; } }
+#elif ANDROID
+        public static int LevelScreenHeight { get { return 480; } }
+#endif
         public static int LevelScreenWidth { get { return 800; } }
+        public static int InitialScreenWidth { get { return 800; } }
+        public static int InitialScreenHeight { get { return 480; } }
+
 
     }
 
