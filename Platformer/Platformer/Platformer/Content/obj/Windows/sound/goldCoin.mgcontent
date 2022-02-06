@@ -3,7 +3,7 @@
   <SourceFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/goldCoin.wav</SourceFile>
   <SourceTime>2022-01-31T21:17:17.6226524-08:00</SourceTime>
   <DestFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/Windows/sound/goldCoin.xnb</DestFile>
-  <DestTime>2022-02-05T11:36:55.4333783-08:00</DestTime>
+  <DestTime>2022-02-05T17:43:51.0671295-08:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T09:17:54-07:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

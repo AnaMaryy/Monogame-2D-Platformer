@@ -80,8 +80,7 @@ namespace Platformer.States
 
         public override void Draw(GameTime gameTime)
         {
-
-            Level.Draw();
+            Level.Draw(gameTime);
         }
     }
 }

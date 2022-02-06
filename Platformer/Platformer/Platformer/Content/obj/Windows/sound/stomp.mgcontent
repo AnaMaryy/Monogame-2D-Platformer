@@ -3,7 +3,7 @@
   <SourceFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/stomp.wav</SourceFile>
   <SourceTime>2021-08-07T18:29:44-07:00</SourceTime>
   <DestFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/Windows/sound/stomp.xnb</DestFile>
-  <DestTime>2022-02-05T11:37:06.0055719-08:00</DestTime>
+  <DestTime>2022-02-05T17:44:03.3150091-08:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T09:17:54-07:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

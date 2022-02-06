@@ -24,8 +24,8 @@ namespace Platformer.States
         {
            
             var buttonTexture = _content.Load<Texture2D>("menu/button2");
-            Font = _content.Load<SpriteFont>("font/ThaleahFat_Normal");
-            TitleFont = _content.Load<SpriteFont>("font/ThaleahFat_Title");
+            Font = GameData.Fonts["ThaleahFat_Normal"];
+            TitleFont = GameData.Fonts["ThaleahFat_Title"];
 #if DESKTOP
             this.ScreenWidth = GameData.LevelScreenWidth;
             this.ScreenHeight = GameData.LevelScreenHeight;

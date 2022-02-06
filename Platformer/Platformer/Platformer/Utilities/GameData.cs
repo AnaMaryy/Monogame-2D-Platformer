@@ -73,6 +73,8 @@ namespace Platformer.Utilities
         public static Dictionary<string, Texture2D> ImageSprites { get; set; }
         public static Dictionary<string, List<Texture2D>> AnimatedSprites { get; set; }
         public static Dictionary<string, SoundEffect> SoundEffects { get; set; }
+        public static Dictionary<string, SpriteFont> Fonts { get; set; }
+
         public static Dictionary<string, Song> Songs { get; set; }
         public static Dictionary<string, string[]> NamesAnimatedSprites  // this is a retarded solution -> android cannot get file names from directory, therfore all file names will be listed as values , the key is the folder name : )
         {
@@ -149,7 +151,7 @@ namespace Platformer.Utilities
 #if DESKTOP
         public static int LevelScreenHeight { get { return VerticalTileNumber * TileSize; } }
 #elif ANDROID
-        public static int LevelScreenHeight { get { return 480; } }
+        public static int LevelScreenHeight { get { return 460; } }
 #endif
         public static int LevelScreenWidth { get { return 800; } }
         public static int InitialScreenWidth { get { return 800; } }

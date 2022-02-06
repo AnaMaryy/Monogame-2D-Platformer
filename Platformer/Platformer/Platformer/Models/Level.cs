@@ -55,7 +55,9 @@ namespace Platformer.Models
         public ScrollingBackground ScrollingBackground { get; set; }
         public Water Water { get; private set; }
         public Gui Gui { get; private set; }
-
+#if ANDROID
+        public AndroidGui AndroidGui { get; private set; }
+#endif
         //game rules
         public int MaxLevel = 2;
 
@@ -122,6 +124,9 @@ namespace Platformer.Models
 
             //gui
             Gui = new Gui(_content);
+#if ANDROID
+            AndroidGui = new AndroidGui();
+#endif
 
             playBackgoundMusic();
             _game.IsMouseVisible = false;
@@ -643,23 +648,25 @@ namespace Platformer.Models
             //from the center of the player and also relative to the device width/height
 #if DESKTOP
             Vector2 vec = new Vector2(_camera.CenterPosition.X - 320, _camera.CenterPosition.Y - 300);
+             Gui.Update(vec);
 #elif ANDROID
-            var x = _camera.CenterPosition.X - GameData.AndroidScreenWidth/4 + 20;
-            var y = _camera.CenterPosition.Y  -GameData.AndroidScreenHeight/ 4 + 20;
+            //TODO : test!
+            var x = _camera.CenterPosition.X - GameData.AndroidScreenWidth/6 + 20;
+            var y = _camera.CenterPosition.Y  -GameData.AndroidScreenHeight/ 6 -20;
             Vector2 vec = new Vector2(x, y);
-            var scaledVec = Vector2.Transform(vec, Matrix.Invert(GameData.LevelScaleMatrix));
+            Gui.Update(vec);
+            AndroidGui.Update(_camera.CenterPosition);
 
 #endif
-            Gui.Update(scaledVec);
 
         }
         //drawing and updating the level
-        public void Draw()
+        public void Draw(GameTime gameTime)
         {
 #if DESKTOP
             _spriteBatch.Begin(transformMatrix:_camera.CameraMatrix);
 #elif ANDROID
-            _spriteBatch.Begin(transformMatrix: _camera.CameraMatrix);
+            _spriteBatch.Begin(transformMatrix: _camera.CameraMatrix * GameData.LevelScaleMatrix);
 #endif
 
 
@@ -757,8 +764,9 @@ namespace Platformer.Models
 
             //gui
             Gui.Draw(_spriteBatch, Player.CurrentHealth, Player.MaxHealth, Coins, BonesCurrent, BonesNeeded);
-            //TODO : maybe fix the warnings
-
+#if ANDROID
+            AndroidGui.Draw(_spriteBatch,gameTime);
+#endif
             checkDeath();
             checkWin();
 

@@ -39,9 +39,9 @@ namespace Platformer.States
 #endif
 
             var buttonTexture = _content.Load<Texture2D>("menu/button2");
-            Font = _content.Load<SpriteFont>("font/ThaleahFat_Normal");
-            TitleFont = _content.Load<SpriteFont>("font/ThaleahFat_Title");
-            
+            Font =GameData.Fonts["ThaleahFat_Normal"];
+            TitleFont = GameData.Fonts["ThaleahFat_Title"];
+
             var volumeSliderTexture = _content.Load<Texture2D>("settings/VolumeSlider");
             var volumeBallTexture = _content.Load<Texture2D>("settings/VolumeBall");
 

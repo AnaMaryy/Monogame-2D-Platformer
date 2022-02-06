@@ -123,6 +123,7 @@ namespace Platformer.Controls
                 Click?.Invoke(this, new EventArgs());
             }
         }
+       
 #endif
         #endregion
     }

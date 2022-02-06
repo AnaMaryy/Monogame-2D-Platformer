@@ -75,10 +75,7 @@ namespace Platformer
             }*/
 
 
-            //start in the menu state
-            _currentState = new MenuState(this, GraphicsDevice, Content, _spriteBatch);
-            _currentState.LoadContent();
-            _nextState = null;
+           
             //load all sound effects
             GameData.SoundEffects = new Dictionary<string, SoundEffect>();
 #if DESKTOP
@@ -99,6 +96,10 @@ namespace Platformer
             GameData.SoundEffects.Add("hit", Content.Load<SoundEffect>("sound/hit"));
             GameData.SoundEffects.Add("win", Content.Load<SoundEffect>("sound/win"));
             GameData.SoundEffects.Add("heart", Content.Load<SoundEffect>("sound/heart"));
+
+           
+
+
 #endif
             //load all songs
             GameData.Songs = new Dictionary<string, Song>();
@@ -116,6 +117,14 @@ namespace Platformer
             GameData.ImageSprites.Add("backgroundSky", Content.Load<Texture2D>("game/background/backgroundTop"));
             GameData.ImageSprites.Add("backgroundBottom", Content.Load<Texture2D>("game/background/backgroundBottom2"));
             GameData.ImageSprites.Add("waterFront", Content.Load<Texture2D>("game/background/waterFront"));
+            GameData.ImageSprites.Add("buttonUp", Content.Load<Texture2D>("androidGui/up"));
+            GameData.ImageSprites.Add("buttonDown", Content.Load<Texture2D>("androidGui/down"));
+            GameData.ImageSprites.Add("buttonLeft", Content.Load<Texture2D>("androidGui/left"));
+            GameData.ImageSprites.Add("buttonRight", Content.Load<Texture2D>("androidGui/right"));
+            //load fonts
+            GameData.Fonts = new Dictionary<string, SpriteFont>();
+            GameData.Fonts.Add("ThaleahFat_Title", Content.Load<SpriteFont>("font/ThaleahFat_Title"));
+            GameData.Fonts.Add("ThaleahFat_Normal", Content.Load<SpriteFont>("font/ThaleahFat_Normal"));
 
             //load all animated image sprites
 
@@ -137,6 +146,10 @@ namespace Platformer
 
 #endif
 
+            //start in the menu state
+            _currentState = new MenuState(this, GraphicsDevice, Content, _spriteBatch);
+            _currentState.LoadContent();
+            _nextState = null;
         }
 
         protected override void Update(GameTime gameTime)

@@ -29,8 +29,7 @@ namespace Platformer.States
       : base(game, graphicsDevice, content, spriteBatch) //menu state ima ste te parametra od svojega starsa
         {
             var buttonTexture = _content.Load<Texture2D>("menu/button2");
-            var buttonFont = _content.Load<SpriteFont>("font/ThaleahFat_Normal");
-
+            var buttonFont = GameData.Fonts["ThaleahFat_Normal"];
 
             this.ScreenWidth = 800;
             this.ScreenHeight = 480;
