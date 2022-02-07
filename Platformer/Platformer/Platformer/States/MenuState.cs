@@ -40,6 +40,12 @@ namespace Platformer.States
             {
                 _game.ChangeScreenSize(ScreenWidth, ScreenHeight);
             }
+#elif ANDROID
+            /*
+            //_game._graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            _game._graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            _game._graphics.SupportedOrientations = DisplayOrientation.LandscapeRight;//if your game does NOT support for anything else but portrait mode
+            _game._graphics.ApplyChanges();*/
 #endif
             var playGameButton = new Button(buttonTexture, buttonFont, new Vector2(ScreenWidth / 2, 200))
             {

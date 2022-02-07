@@ -26,7 +26,7 @@ namespace Platformer
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            Content.RootDirectory = "Content"; 
         }
 
         protected override void Initialize()
@@ -38,12 +38,12 @@ namespace Platformer
             _graphics.PreferredBackBufferHeight = GameData.InitialScreenHeight;   // set this value to the desired height of your window
             _graphics.IsFullScreen = false;
 #elif ANDROID
-            GameData.AndroidScreenWidth = _graphics.GraphicsDevice.Viewport.Width;
-            GameData.AndroidScreenHeight = _graphics.GraphicsDevice.Viewport.Height;
+            GameData.AndroidScreenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            GameData.AndroidScreenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
             //_graphics.PreferredBackBufferWidth =GameData.AndroidScreenWidth;
             //_graphics.PreferredBackBufferHeight = GameData.AndroidScreenHeight;
-
-
+            Trace.WriteLine("X :" + _graphics.GraphicsDevice.Viewport.Width + " Y " + _graphics.GraphicsDevice.Viewport.Height);
+            //scale matrixes
             var scale_wid = (float)GameData.AndroidScreenWidth / GameData.InitialScreenWidth;
             var scale_hei = (float)GameData.AndroidScreenHeight / GameData.InitialScreenHeight;
             GameData.MenuScaleMatrix = Matrix.CreateScale(scale_wid, scale_hei, 1.0f);
@@ -51,8 +51,16 @@ namespace Platformer
              var scale_width = (float)GameData.AndroidScreenWidth / GameData.LevelScreenWidth;
             var scale_height = (float)GameData.AndroidScreenHeight / GameData.LevelScreenHeight;
             GameData.LevelScaleMatrix = Matrix.CreateScale(scale_width, scale_height, 1.0f);
-            //var r = GraphicsDevice.Viewport.Bounds;
-            //GameData.LevelScaleMatrix = Matrix.Identity * Matrix.CreateScale(r.Width / GameData.LevelScreenWidth, r.Height / GameData.LevelScreenHeight, 0f);
+
+            //for full screen
+            _graphics.IsFullScreen = true;
+            _graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            _graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            Trace.WriteLine("XX :" + GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + " YY " + GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
+
+            _graphics.SupportedOrientations = DisplayOrientation.LandscapeRight;//if your game does NOT support for anything else but portrait mode
+            _graphics.ApplyChanges();
+
 #endif
 
             _graphics.ApplyChanges();

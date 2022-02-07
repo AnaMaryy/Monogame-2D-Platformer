@@ -26,18 +26,17 @@ namespace Platformer.States
             var buttonTexture = _content.Load<Texture2D>("menu/button2");
             Font = GameData.Fonts["ThaleahFat_Normal"];
             TitleFont = GameData.Fonts["ThaleahFat_Title"];
+            this.ScreenWidth = 800;
+            this.ScreenHeight = 480;
+
+
 #if DESKTOP
-            this.ScreenWidth = GameData.LevelScreenWidth;
-            this.ScreenHeight = GameData.LevelScreenHeight;
-#elif ANDROID
-            this.ScreenWidth = GameData.AndroidScreenWidth;
-            this.ScreenHeight = GameData.AndroidScreenHeight;
-#endif
-            //change width and height if values differ
             if (_graphicsDevice.Viewport.Width != ScreenWidth || _graphicsDevice.Viewport.Height != ScreenHeight)
             {
                 _game.ChangeScreenSize(ScreenWidth, ScreenHeight);
             }
+#endif
+            
 
 
             var playAgainButton = new Button(buttonTexture, Font, new Vector2(ScreenWidth / 2, 290))
@@ -87,7 +86,7 @@ namespace Platformer.States
 
         public override void Draw(GameTime gameTime)
         {
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(transformMatrix:GameData.MenuScaleMatrix);
             SupportingFunctions.DrawBackground(GraphicsDictionary, _spriteBatch, ScreenWidth, ScreenHeight);
             var x = (ScreenWidth / 2) - (TitleFont.MeasureString("NEXT LEVEL").X / 2);
             _spriteBatch.DrawString(TitleFont, "NEXT LEVEL", new Vector2(x, 200), Color.Black);

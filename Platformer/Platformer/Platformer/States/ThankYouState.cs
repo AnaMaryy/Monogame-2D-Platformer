@@ -89,7 +89,7 @@ namespace Platformer.States
 
         public override void Draw(GameTime gameTime)
         {
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(transformMatrix:GameData.LevelScaleMatrix);
             SupportingFunctions.DrawBackground(GraphicsDictionary, _spriteBatch, ScreenWidth, ScreenHeight);
             var x = (ScreenWidth / 2) - (TitleFont.MeasureString("Thank you for playing").X / 2);
             _spriteBatch.DrawString(TitleFont, "Thank you for playing", new Vector2(x, 200), Color.Black);

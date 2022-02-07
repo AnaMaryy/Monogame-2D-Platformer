@@ -25,18 +25,19 @@ namespace Platformer.Android
             base.OnCreate(bundle);
 
             _game = new Game1();
-            _game.GameFinished +=
-               (sender, e) =>
-               {
-                   Process.KillProcess(Process.MyPid());
-               };
             _view = _game.Services.GetService(typeof(View)) as View;
-
             SetContentView(_view);
             _game.Run();
-            //_view.SystemUiVisibility = (StatusBarVisibility)SystemUiFlags.HideNavigation;
-            //_view.SetOnSystemUiVisibilityChangeListener(new MyUiVisibilityChangeListener(_view));
 
+            _game.GameFinished +=
+              (sender, e) =>
+              {
+                  Process.KillProcess(Process.MyPid());
+              };
+            //SetImmersive();
+            //_view.SystemUiVisibility = (StatusBarVisibility)SystemUiFlags.HideNavigation | (StatusBarVisibility)SystemUiFlags.ImmersiveSticky;
+            //_view.SetOnSystemUiVisibilityChangeListener(new MyUiVisibilityChangeListener(_view));
+            HideSystemUI();
 
         }
         public override void OnWindowFocusChanged(bool hasFocus)
@@ -65,6 +66,16 @@ namespace Platformer.Android
                     targetView.SystemUiVisibility = (StatusBarVisibility)SystemUiFlags.HideNavigation | (StatusBarVisibility)SystemUiFlags.ImmersiveSticky;
                 }
             }
+        }
+        public void OnSystemUiVisibilityChange(StatusBarVisibility visibility)
+        {
+            HideSystemUI();
+        }
+
+        private void HideSystemUI()
+        {
+            SystemUiFlags flags = SystemUiFlags.HideNavigation | SystemUiFlags.Fullscreen | SystemUiFlags.ImmersiveSticky;
+            this.Window.DecorView.SystemUiVisibility = (StatusBarVisibility)flags;
         }
     }
     

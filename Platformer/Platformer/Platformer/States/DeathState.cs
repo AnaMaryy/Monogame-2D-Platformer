@@ -22,12 +22,15 @@ namespace Platformer.States
         public DeathState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, SpriteBatch spriteBatch)
       : base(game, graphicsDevice, content, spriteBatch) //menu state ima ste te parametra od svojega starsa
         {
+            this.ScreenWidth = 800;
+            this.ScreenHeight = 480;
+
+
 #if DESKTOP
-            this.ScreenWidth = GameData.LevelScreenWidth;
-            this.ScreenHeight = GameData.LevelScreenHeight;
-#elif ANDROID
-            this.ScreenWidth = GameData.AndroidScreenWidth;
-            this.ScreenHeight = GameData.AndroidScreenHeight;
+            if (_graphicsDevice.Viewport.Width != ScreenWidth || _graphicsDevice.Viewport.Height != ScreenHeight)
+            {
+                _game.ChangeScreenSize(ScreenWidth, ScreenHeight);
+            }
 #endif
 
             var buttonTexture = _content.Load<Texture2D>("menu/button2");
