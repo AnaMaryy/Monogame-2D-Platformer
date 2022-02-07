@@ -40,6 +40,8 @@ namespace Platformer.Utilities
                     { "crate","LevelData/0/level_0_crate.csv"},
                     { "player","LevelData/0/level_0_player.csv" },
                     { "terrain","LevelData/0/level_0_terrain.csv" },
+                    { "instructions","LevelData/0/level_0_instructions.csv" },
+
                 };
             }
         }
@@ -61,6 +63,8 @@ namespace Platformer.Utilities
                     { "crate","LevelData/1/level_1_crate.csv"},
                     { "player","LevelData/1/level_1_player.csv" },
                     { "terrain","LevelData/1/level_1_terrain.csv" },
+                    { "instructions","LevelData/1/level_1_instructions.csv" },
+
                 };
             }
         }

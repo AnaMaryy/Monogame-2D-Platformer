@@ -3,7 +3,7 @@
   <SourceFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/heart.wav</SourceFile>
   <SourceTime>2022-01-31T21:38:29.3943185-08:00</SourceTime>
   <DestFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/Windows/sound/heart.xnb</DestFile>
-  <DestTime>2022-02-05T17:43:56.3238194-08:00</DestTime>
+  <DestTime>2022-02-07T14:38:45.172621-08:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T09:17:54-07:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

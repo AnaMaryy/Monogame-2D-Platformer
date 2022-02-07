@@ -49,6 +49,7 @@ namespace Platformer.Models
         public List<Tile> ConstraintTiles { get; private set; }
         public List<Tile> BoneTiles { get; private set; }
         public List<Tile> HeartTiles { get; private set; }
+        public List<Tile> InstructionTiles { get; private set; }
         public List<OneLoopAnimation> OneLoopAnimations { get; private set; }
 
 
@@ -62,6 +63,12 @@ namespace Platformer.Models
         public int Coins = 0;
         public int BonesCurrent = 0;
         public int BonesNeeded { get; set; }
+
+        //timer
+        public bool Lose { get; set; }
+        public Timer LoseTimer { get; set; }
+
+       
 
         public Level(Game1 game, SpriteBatch spriteBatch, GraphicsDevice graphicsDevice, ContentManager content, Dictionary<string, string> levelData)
         {
@@ -113,7 +120,9 @@ namespace Platformer.Models
             //constraints for enemies
             var constraintLayout = SupportingFunctions.ImportCvsLayout(levelData["constraints"], _content);
             ConstraintTiles = createTileGroup(constraintLayout, "constraints");
-
+            //constraints for instructions
+            var instructionsLayout = SupportingFunctions.ImportCvsLayout(levelData["instructions"], _content);
+            InstructionTiles = createTileGroup(instructionsLayout, "instructions");
             //decoration classes
             int horizon = 6; //at which tile is the horizon
             int levelWidth = terrainLayout[0].Length * GameData.TileSize;
@@ -129,6 +138,10 @@ namespace Platformer.Models
 
             //gameplay rules
             BonesNeeded = 3;
+
+            //timer
+            Lose = false;
+            LoseTimer = new Timer(1f);
 
         }
         //loads the content of all the files -> stores them into two dicts
@@ -312,6 +325,24 @@ namespace Platformer.Models
                             HeartTile tile = new HeartTile(GameData.ImageSprites["singleHeart"], new Vector2(x, y), null, null);
                             tiles.Add(tile);
                         }
+                        if (grafic == "instructions")
+                        {
+                            Texture2D texture;
+                            if (val1 == 0)
+                            {
+                                texture = GameData.ImageSprites["instructionMove"];
+                            }
+                            else if (val1 == 1)
+                            {
+                                texture = GameData.ImageSprites["instructionJump"];
+                            }
+                            else 
+                            {
+                                texture = GameData.ImageSprites["instructionBone"];
+                            }
+                            InstructionTile tile = new InstructionTile(texture, new Vector2(x, y), null, null);
+                            tiles.Add(tile);
+                        }
 
                     }
 
@@ -467,37 +498,58 @@ namespace Platformer.Models
         private void checkWin()
         {
             //if the player is at the end of the level -> colliding with the end game tile
-            if (Player.Rectangle.Intersects(EndLevelTile.Rectangle) && (BonesCurrent >= BonesNeeded))
+            if (Player.Rectangle.Intersects(EndLevelTile.Rectangle) )
             {
-                PlayerStats.CompletedLevels += 1;
-                PlayerStats.Save();
-                GameData.SoundEffects["win"].Play(volume: PlayerStats.SoundEffectsVolume, 0.0f, 0.0f);
-
-
-                if (GameData.NumberOfLevels == PlayerStats.CompletedLevels + 1)
+                //start the bubble
+                EndLevelTile.TalkTimer.Wait = true;
+                //win
+                if(BonesCurrent >= BonesNeeded)
                 {
-                    _game.ChangeState(new ThankYouState(_game, _graphicsDevice, _content, _spriteBatch));
+                    PlayerStats.CompletedLevels += 1;
+                    PlayerStats.Save();
+                    GameData.SoundEffects["win"].Play(volume: PlayerStats.SoundEffectsVolume, 0.0f, 0.0f);
+                    //bubble
+                    EndLevelTile.Win = true;
+                    //wait one second
+                    System.Threading.Thread.Sleep(1000);
+
+                    if (GameData.NumberOfLevels == PlayerStats.CompletedLevels + 1)
+                    {
+                        _game.ChangeState(new ThankYouState(_game, _graphicsDevice, _content, _spriteBatch));
+
+                    }
+                    else
+                    {
+                        _game.ChangeState(new NextLevelState(_game, _graphicsDevice, _content, _spriteBatch));
+                    }
 
                 }
-                else
-                {
-                    _game.ChangeState(new NextLevelState(_game, _graphicsDevice, _content, _spriteBatch));
-                }
+               
             }
-            else
-            {
-                EndLevelTile.ShowHint();
-            }
+            
 
         }
         private void checkDeath()
         {
             //if no health or out of bounds
-            if ((Player.CurrentHealth <= 0) || (Player.Rectangle.Y > DeathLine))
+            if ((Player.CurrentHealth <= 0) || (Player.Rectangle.Y+Player.Height >= DeathLine))
             {
-                //game over -> so switch to gameover screen?
-                _game.ChangeState(new DeathState(_game, _graphicsDevice, _content, _spriteBatch));
+                _spriteBatch.Draw(GameData.ImageSprites["death"], new Vector2(Player.Rectangle.X, Player.Rectangle.Y), Color.White);
+                if (!Lose)
+                {
+                    Lose = true;
+                   
+                    GameData.SoundEffects["lose"].Play(volume: PlayerStats.SoundEffectsVolume, 0.0f, 0.0f);
+                    LoseTimer.Wait = true;
+                }
+                if(Lose && !LoseTimer.Wait)
+                {
+                    //draw a death sprite and wait a second
 
+
+                    //game over -> so switch to gameover screen?
+                    _game.ChangeState(new DeathState(_game, _graphicsDevice, _content, _spriteBatch));
+                }
             }
         }
         private void coinCollision()
@@ -640,17 +692,29 @@ namespace Platformer.Models
         }
         public void Update(GameTime gameTime)
         {
-            _camera.Follow(Player);
-            GameData.CameraMatrix = _camera.CameraMatrix;
-            //from the center of the player and also relative to the device width/height
-            Player.Update();
-            horizontalMovementCollision();
-            verticalMovementCollision();
-            Gui.Update(_camera.CenterPosition);
-#if ANDROID           
-            Player.AndroidGui.Update(_camera.CenterPosition,gameTime);
+            if (!Lose)
+            {
+                _camera.Follow(Player);
+                GameData.CameraMatrix = _camera.CameraMatrix;
+                //from the center of the player and also relative to the device width/height
+                Player.Update();
+                horizontalMovementCollision();
+                verticalMovementCollision();
+                Gui.Update(_camera.CenterPosition);
+#if ANDROID
+                Player.AndroidGui.Update(_camera.CenterPosition, gameTime);
 
 #endif
+
+            }
+            else
+            {
+                //timer
+                LoseTimer.Update();
+            }
+
+           
+          
 
         }
         //drawing and updating the level
@@ -663,10 +727,18 @@ namespace Platformer.Models
 #endif
 
 
+          
+
             //background images
             ScrollingBackground.Update();
             ScrollingBackground.Draw(_spriteBatch);
-         
+
+            //for instruction tiles
+            foreach (InstructionTile tile in InstructionTiles)
+            {
+                tile.Update();
+                tile.Draw(_spriteBatch);
+            }
             //for background palms
             foreach (PalmTreeTile tile in BgPalmTiles)
             {
@@ -679,6 +751,8 @@ namespace Platformer.Models
                 tile.Update();
                 tile.Draw(_spriteBatch);
             }
+            checkDeath();
+            checkWin();
             //for level tiles
             foreach (Tile tile in TerrainTiles)
             {
@@ -739,6 +813,7 @@ namespace Platformer.Models
                 tile.Update();
                 tile.Draw(_spriteBatch);
             }
+           
 
             //for one time animations -> explosions, check if there are finished or not
             DrawingOneLoopAnimations();
@@ -747,11 +822,14 @@ namespace Platformer.Models
             EndLevelTile.Update();
             EndLevelTile.Draw(_spriteBatch);
             //player
-           // Player.Update();
+            // Player.Update();
             //horizontalMovementCollision();
             //verticalMovementCollision();
-           
-            Player.Draw();
+            if (!Lose)
+            {
+                Player.Draw();
+
+            }
 
 
             //gui
@@ -759,8 +837,7 @@ namespace Platformer.Models
 #if ANDROID
             Player.AndroidGui.Draw(_spriteBatch,gameTime);
 #endif
-            checkDeath();
-            checkWin();
+           
 
             //collisions with player and interactable objects
             coinCollision();

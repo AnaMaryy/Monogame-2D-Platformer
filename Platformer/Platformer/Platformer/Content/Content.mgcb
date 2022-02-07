@@ -526,6 +526,18 @@
 /processorParam:TextureFormat=Color
 /build:game/decoration/water/4.png
 
+#begin game/dog/death.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:game/dog/death.png
+
 #begin game/dog/dust/fall/Fall 01.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1510,6 +1522,30 @@
 /processorParam:TextureFormat=Color
 /build:game/hearts/heart3.png
 
+#begin game/human/bubble/collectBubble.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:game/human/bubble/collectBubble.png
+
+#begin game/human/bubble/winBubble.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:game/human/bubble/winBubble.png
+
 #begin game/human/idle/FinnSprite.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1545,6 +1581,42 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:game/human/idle/FinnSprite3.png
+
+#begin game/instructions/jumpBoardSniff.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:game/instructions/jumpBoardSniff.png
+
+#begin game/instructions/jumpBoardSpacebar1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:game/instructions/jumpBoardSpacebar1.png
+
+#begin game/instructions/moveBoard.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:game/instructions/moveBoard.png
 
 #begin menu/Additional Sky.png
 /importer:TextureImporter
@@ -1713,6 +1785,18 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:sound/jump.wav
+
+#begin sound/jump2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sound/jump2.wav
+
+#begin sound/lose.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sound/lose.wav
 
 #begin sound/silverCoin.wav
 /importer:WavImporter

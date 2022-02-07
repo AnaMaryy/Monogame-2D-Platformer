@@ -144,26 +144,75 @@ namespace Platformer.Sprites
     public class HumanTile : AnimatedTile
     {
         public float Scale { get; set; }
+        private float BubbleScale { get; set; }
+
         public int PositionY { get; set; }
+        //timer
+        public Timer TalkTimer { get; set; }
+        public bool Win { get; set; }
+       
 
         public HumanTile(Texture2D image, Vector2 position, Rectangle? drawRectangle, List<Texture2D> textures, int? tilesize) : base(image, position, drawRectangle, textures, tilesize)
         {
             Scale = 1.5f;
+            BubbleScale = 0.7f;
             PositionY = (int)position.Y;
             int offsetY = (int)(position.Y + GameData.TileSize - image.Height * Scale);
             Rectangle = new Rectangle((int)position.X, offsetY, TileWidth, TileHeight);
+            
+            Win = false;
+            TalkTimer = new Timer(2f);
+           
         }
         public new void Draw(SpriteBatch spriteBatch)
         {
+            //bubble
+            if (TalkTimer.Wait)
+            {
+
+                var x = Rectangle.X- GameData.ImageSprites["bubbleWin"].Width*BubbleScale;
+                var y = Rectangle.Y - GameData.ImageSprites["bubbleWin"].Height * BubbleScale;
+                Vector2 position = new Vector2(x, y);
+                if (Win)
+                {
+                    spriteBatch.Draw(GameData.ImageSprites["bubbleWin"], position, null, Color.White, 0f, Vector2.Zero, BubbleScale, SpriteEffects.None, 0f);
+                }
+                else
+                {
+                    spriteBatch.Draw(GameData.ImageSprites["bubbleFail"], position, null, Color.White, 0f, Vector2.Zero, BubbleScale, SpriteEffects.None, 0f);
+                }
+            }
+            //human
             spriteBatch.Draw(Texture, new Vector2(Rectangle.X, Rectangle.Y), null, Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.FlipHorizontally, 0f);
 
         }
-        public void ShowHint()
+       
+        public void Update()
         {
-
+            Animate();
+            TalkTimer.Update();
 
         }
 
+
+    }
+    public class InstructionTile : Tile
+    {
+        public float Scale { get; set; }
+
+        public InstructionTile(Texture2D image, Vector2 position, Rectangle? drawRectangle, int? tilesize) : base(image, position, drawRectangle, tilesize)
+        {
+            Scale = 0.8f;
+
+            int offsetY = (int)((position.Y + 1.2f*GameData.TileSize) - image.Height*Scale);
+            Rectangle = new Rectangle((int)position.X, offsetY, (int)(TileWidth * Scale), (int)(TileHeight * Scale));
+
+        }
+        public new void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(Texture, new Vector2(Rectangle.X, Rectangle.Y), null, Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.None, 0f);
+
+        }
 
     }
 }

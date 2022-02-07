@@ -105,8 +105,8 @@ namespace Platformer.GUI
             OriginalPosition = new Vector2((int)center.X - GameData.AndroidScreenWidth / 7 + 20, (int)center.Y + GameData.AndroidScreenHeight / 6);
             LeftPosition = new Vector2(OriginalPosition.X , OriginalPosition.Y );
             RightPosition = new Vector2(OriginalPosition.X + (int)(1.5f*Buttons["left"].Texture.Width), OriginalPosition.Y );
-            UpPosition = new Vector2((int)center.X + GameData.AndroidScreenWidth / 9, OriginalPosition.Y);
-            DownPosition = new Vector2(UpPosition.X+ 2*Buttons["down"].Texture.Width , OriginalPosition.Y );
+            DownPosition = new Vector2((int)center.X + GameData.AndroidScreenWidth / 9, OriginalPosition.Y);
+            UpPosition = new Vector2(DownPosition.X+ 2*Buttons["down"].Texture.Width , OriginalPosition.Y );
 
             Buttons["up"].Position = UpPosition;
             Buttons["down"].Position = DownPosition;

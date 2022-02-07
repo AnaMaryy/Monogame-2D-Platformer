@@ -95,8 +95,10 @@ namespace Platformer
             GameData.SoundEffects.Add("hit", Content.Load<SoundEffect>("../../../../Content/sound/hit"));
             GameData.SoundEffects.Add("win", Content.Load<SoundEffect>("../../../../Content/sound/win"));
             GameData.SoundEffects.Add("heart", Content.Load<SoundEffect>("../../../../Content/sound/heart"));
+                        GameData.SoundEffects.Add("lose", Content.Load<SoundEffect>("../../../../Content/sound/lose"));
+
 #elif ANDROID
-            GameData.SoundEffects.Add("jump", Content.Load<SoundEffect>("sound/jump"));
+            GameData.SoundEffects.Add("jump", Content.Load<SoundEffect>("sound/jump2"));
             GameData.SoundEffects.Add("bone", Content.Load<SoundEffect>("sound/bone"));
             GameData.SoundEffects.Add("goldCoin", Content.Load<SoundEffect>("sound/goldCoin"));
             GameData.SoundEffects.Add("silverCoin", Content.Load<SoundEffect>("sound/silverCoin"));
@@ -104,8 +106,10 @@ namespace Platformer
             GameData.SoundEffects.Add("hit", Content.Load<SoundEffect>("sound/hit"));
             GameData.SoundEffects.Add("win", Content.Load<SoundEffect>("sound/win"));
             GameData.SoundEffects.Add("heart", Content.Load<SoundEffect>("sound/heart"));
+            GameData.SoundEffects.Add("lose", Content.Load<SoundEffect>("sound/lose"));
 
-           
+
+
 
 
 #endif
@@ -129,6 +133,13 @@ namespace Platformer
             GameData.ImageSprites.Add("buttonDown", Content.Load<Texture2D>("androidGui/down"));
             GameData.ImageSprites.Add("buttonLeft", Content.Load<Texture2D>("androidGui/left"));
             GameData.ImageSprites.Add("buttonRight", Content.Load<Texture2D>("androidGui/right"));
+            GameData.ImageSprites.Add("instructionBone", Content.Load<Texture2D>("game/instructions/jumpBoardSniff"));
+            GameData.ImageSprites.Add("instructionMove", Content.Load<Texture2D>("game/instructions/moveBoard"));
+            GameData.ImageSprites.Add("instructionJump", Content.Load<Texture2D>("game/instructions/jumpBoardSpacebar1"));
+            GameData.ImageSprites.Add("bubbleFail", Content.Load<Texture2D>("game/human/bubble/collectBubble"));
+            GameData.ImageSprites.Add("bubbleWin", Content.Load<Texture2D>("game/human/bubble/winBubble"));
+            GameData.ImageSprites.Add("death", Content.Load<Texture2D>("game/dog/death"));
+
             //load fonts
             GameData.Fonts = new Dictionary<string, SpriteFont>();
             GameData.Fonts.Add("ThaleahFat_Title", Content.Load<SpriteFont>("font/ThaleahFat_Title"));

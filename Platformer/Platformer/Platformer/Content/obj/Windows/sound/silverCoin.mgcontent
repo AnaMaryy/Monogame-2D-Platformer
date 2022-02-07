@@ -3,7 +3,7 @@
   <SourceFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/silverCoin.wav</SourceFile>
   <SourceTime>2022-01-31T21:17:20.7562722-08:00</SourceTime>
   <DestFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/Windows/sound/silverCoin.xnb</DestFile>
-  <DestTime>2022-02-05T17:44:01.4958437-08:00</DestTime>
+  <DestTime>2022-02-07T14:38:54.2221921-08:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T09:17:54-07:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

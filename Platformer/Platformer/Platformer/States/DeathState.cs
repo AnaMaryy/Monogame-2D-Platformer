@@ -37,10 +37,7 @@ namespace Platformer.States
             Font = GameData.Fonts["ThaleahFat_Normal"];
             TitleFont = GameData.Fonts["ThaleahFat_Title"];
             //change width and height if values differ
-            if (_graphicsDevice.Viewport.Width != ScreenWidth || _graphicsDevice.Viewport.Height != ScreenHeight)
-            {
-                _game.ChangeScreenSize(ScreenWidth, ScreenHeight);
-            }
+          
 
 
             var tryAgainButton = new Button(buttonTexture, Font, new Vector2(ScreenWidth / 2, 290))
