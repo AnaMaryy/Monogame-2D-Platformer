@@ -26,6 +26,23 @@ namespace Platformer.Utilities
             }
             return false;
         }
+        //checks the touch input of the game gui buttons
+        public static bool CheckTouchGameGui(Rectangle target, TouchCollection touchCollection)
+        {
+            if (touchCollection.Count > 0)
+            {
+                foreach (var touch in touchCollection)
+                {
+                    var scaledTouchPosition = Vector2.Transform(touch.Position, Matrix.Invert(GameData.CameraMatrix *GameData.LevelScaleMatrix));
+
+                    if (target.Contains(scaledTouchPosition))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
         //used for slider -> also returns the position of the touch
         public static Vector2? CheckTouchSlider(Rectangle target, TouchCollection touchCollection)
         {

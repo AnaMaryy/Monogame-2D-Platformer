@@ -55,9 +55,7 @@ namespace Platformer.Models
         public ScrollingBackground ScrollingBackground { get; set; }
         public Water Water { get; private set; }
         public Gui Gui { get; private set; }
-#if ANDROID
-        public AndroidGui AndroidGui { get; private set; }
-#endif
+
         //game rules
         public int MaxLevel = 2;
 
@@ -124,9 +122,7 @@ namespace Platformer.Models
 
             //gui
             Gui = new Gui(_content);
-#if ANDROID
-            AndroidGui = new AndroidGui();
-#endif
+
 
             playBackgoundMusic();
             _game.IsMouseVisible = false;
@@ -534,7 +530,7 @@ namespace Platformer.Models
             {
                 BoneTile bone = (BoneTile)BoneTiles[i];
                 //pickup the bone 
-                if (Player.Rectangle.Intersects(bone.Rectangle) && Keyboard.GetState().IsKeyDown(Keys.Down))
+                if (Player.Rectangle.Intersects(bone.Rectangle) && Player.PlayerStatus =="dog/sniff")
                 {
                     BoneTiles.RemoveAt(i);
                     BonesCurrent += 1;
@@ -642,20 +638,17 @@ namespace Platformer.Models
 
             return temp;
         }
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             _camera.Follow(Player);
+            GameData.CameraMatrix = _camera.CameraMatrix;
             //from the center of the player and also relative to the device width/height
-#if DESKTOP
-            Vector2 vec = new Vector2(_camera.CenterPosition.X - 320, _camera.CenterPosition.Y - 300);
-             Gui.Update(vec);
-#elif ANDROID
-            //TODO : test!
-            var x = _camera.CenterPosition.X - GameData.AndroidScreenWidth/6 + 20;
-            var y = _camera.CenterPosition.Y  -GameData.AndroidScreenHeight/ 6 -20;
-            Vector2 vec = new Vector2(x, y);
-            Gui.Update(vec);
-            AndroidGui.Update(_camera.CenterPosition);
+            Player.Update();
+            horizontalMovementCollision();
+            verticalMovementCollision();
+            Gui.Update(_camera.CenterPosition);
+#if ANDROID           
+            Player.AndroidGui.Update(_camera.CenterPosition,gameTime);
 
 #endif
 
@@ -754,18 +747,17 @@ namespace Platformer.Models
             EndLevelTile.Update();
             EndLevelTile.Draw(_spriteBatch);
             //player
-            Player.Update();
-            horizontalMovementCollision();
-            verticalMovementCollision();
-            //scrollX();//shift camera level
-            //scrollY();
+           // Player.Update();
+            //horizontalMovementCollision();
+            //verticalMovementCollision();
+           
             Player.Draw();
 
 
             //gui
             Gui.Draw(_spriteBatch, Player.CurrentHealth, Player.MaxHealth, Coins, BonesCurrent, BonesNeeded);
 #if ANDROID
-            AndroidGui.Draw(_spriteBatch,gameTime);
+            Player.AndroidGui.Draw(_spriteBatch,gameTime);
 #endif
             checkDeath();
             checkWin();

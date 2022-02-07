@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Platformer.GUI;
 using Platformer.Sprites;
 using Platformer.Utilities;
 using System;
@@ -59,6 +60,10 @@ namespace Platformer.Models
         public int ImmortalDuration { get; private set; }
         public int HurtTime { get; private set; }
 
+        //android input gui
+#if ANDROID 
+        public AndroidGui AndroidGui { get; set; }
+#endif
         public Player(Vector2 position, ContentManager content, SpriteBatch spriteBatch)
         {
             //Rectangle= new Rectangle((int)Position.X, (int)Position.Y, (int)(Width * Scale), (int)(Height * Scale));
@@ -102,6 +107,10 @@ namespace Platformer.Models
             Immortal = false;
             ImmortalDuration = (int)(60 * 1.5f);//immortal for 1.5 s
             HurtTime = 0;
+#if ANDROID
+            //andorid gui
+            AndroidGui = new AndroidGui();
+#endif
         }
 
         public void gravity()
@@ -164,10 +173,17 @@ namespace Platformer.Models
                     PlayerStatus = "dog/idle1";
                 }
             }
+#if DESKTOP
             if (Keyboard.GetState().IsKeyDown(Keys.Down) && OnGround)
             {
                 PlayerStatus = "dog/sniff";
             }
+#elif ANDROID
+            if (AndroidGui.DownKey && OnGround)
+            {
+                PlayerStatus = "dog/sniff";
+            }
+#endif
         }
         public void Animate()
         {
@@ -183,6 +199,38 @@ namespace Platformer.Models
 
         }
 
+#if ANDROID
+        public void getAndroidInput()
+        {
+            
+            //left, right movement
+            if (AndroidGui.LeftKey)
+            {
+                Direction = new Vector2(-1, Direction.Y);
+                FacingRight = false;
+            }
+            else if (AndroidGui.RightKey)
+            {
+                Direction = new Vector2(1, Direction.Y);
+                FacingRight = true;
+            }
+            else
+            {
+                Direction = new Vector2(0, Direction.Y);
+            }
+            //shiff -> cant move
+            if (AndroidGui.DownKey && OnGround)
+            {
+                Direction = new Vector2(0, 0);
+            }
+
+            //jump 
+            if (AndroidGui.UpKey && OnGround)
+            {
+                jump();
+            }
+        }
+#endif
         public void getInput()
         {
             //left, right movement
@@ -212,6 +260,7 @@ namespace Platformer.Models
                 jump();
             }
         }
+
         public void takeDamage()
         {
             if (!Immortal)
@@ -262,16 +311,21 @@ namespace Platformer.Models
         }
         public void Update()
         {
+#if DESKTOP
             getInput();
+#elif ANDROID
+            getAndroidInput();
+#endif
             getStatus();
             Animate();
-            RunDustAnimation();
+            
             ImmortalTimer();
             //Rectangle = new Rectangle((int)(Rectangle.X + Direction.X * Speed), Rectangle.Y,(int)(Width*Scale), (int)(Height*Scale));
 
         }
         public void Draw()
         {
+            RunDustAnimation();
             int opacity = cosWave();
             if (FacingRight)
             {

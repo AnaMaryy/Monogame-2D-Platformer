@@ -150,13 +150,17 @@ namespace Platformer.Utilities
 
 #if DESKTOP
         public static int LevelScreenHeight { get { return VerticalTileNumber * TileSize; } }
-#elif ANDROID
-        public static int LevelScreenHeight { get { return 460; } }
-#endif
         public static int LevelScreenWidth { get { return 800; } }
+
+#elif ANDROID
+        public static int LevelScreenHeight { get { return 480; } }
+        public static int LevelScreenWidth { get { return 900; } }
+
+#endif
         public static int InitialScreenWidth { get { return 800; } }
         public static int InitialScreenHeight { get { return 480; } }
 
+        public static Matrix CameraMatrix { get; set; }
 
     }
 

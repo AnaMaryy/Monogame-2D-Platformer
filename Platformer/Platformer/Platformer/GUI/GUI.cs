@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Platformer.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -38,8 +39,16 @@ namespace Platformer.GUI
         }
         public void Update(Vector2 center)
         {
+#if DESKTOP
+            Vector2 position = new Vector2(center.X - 320,center.Y - 300);
+#elif ANDROID
+            //TODO : test!
+            var x = center.X - GameData.AndroidScreenWidth / 6 + 20;
+            var y = center.Y - GameData.AndroidScreenHeight / 6 - 20;
+            Vector2 position = new Vector2(x, y);
+#endif
 
-            OriginalPosition = new Vector2((int)center.X, (int)center.Y);
+            OriginalPosition = new Vector2((int)position.X, (int)position.Y);
             HeartsPosition = new Vector2(OriginalPosition.X, OriginalPosition.Y);
             CoinsPosition = new Vector2(OriginalPosition.X + 5, OriginalPosition.Y + 40);
             BonesPosition = new Vector2(OriginalPosition.X + 20, OriginalPosition.Y + 75);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.IO.IsolatedStorage;
 using System.Text;
 using System.Text.Json;
 
@@ -27,7 +28,7 @@ namespace Platformer.Utilities
         private const string PATH = "stats.json";
 
         #region Methods
-
+#if DESKTOP
         public static bool SaveExist()//checks if the save file exists or not
         {
             return File.Exists(PATH);
@@ -63,6 +64,54 @@ namespace Platformer.Utilities
 
 
         }
-        #endregion
+#elif ANDROID
+        public static bool SaveExist()//checks if the save file exists or not
+        {
+            var store = IsolatedStorageFile.GetUserStoreForApplication();
+            return store.FileExists("stats.json");
+        }
+        public static void Save()
+        {
+            IsolatedStorageFile savegameStorage = IsolatedStorageFile.GetUserStoreForApplication();
+            StreamWriter writer = new StreamWriter(new IsolatedStorageFileStream("stats.json", FileMode.OpenOrCreate, savegameStorage));
+
+            //json serialize the data
+            SaveStats obj = new SaveStats();//create an instance of the savable class
+            obj.MusicVolume = MusicVolume;
+            obj.SoundEffectsVolume = SoundEffectsVolume;
+            obj.CompletedLevels = CompletedLevels;
+
+
+            string serializedText = JsonSerializer.Serialize<SaveStats>(obj);
+            Trace.WriteLine("Saved:" + serializedText);
+
+            writer.WriteLine(serializedText);
+            writer.Close();
+        }
+        public static void Load()
+        {
+            IsolatedStorageFile savegameStorage = IsolatedStorageFile.GetUserStoreForApplication();
+            try
+            {
+                StreamReader reader = new StreamReader(new IsolatedStorageFileStream("stats.json", FileMode.Open, savegameStorage));
+                String content = reader.ReadToEnd();
+                reader.Close();
+
+                var data = JsonSerializer.Deserialize<SaveStats>(content);
+                //set the class ? maybe faster way to do this in c?
+                Trace.WriteLine("loaded:" + data.MusicVolume + "  " + data.SoundEffectsVolume);
+
+                MusicVolume = data.MusicVolume;
+                SoundEffectsVolume = data.SoundEffectsVolume;
+                CompletedLevels = data.CompletedLevels;
+
+            }
+            catch
+            {
+                Trace.WriteLine( "the file was not found");
+            }
+        }
+#endif
+#endregion
     }
 }

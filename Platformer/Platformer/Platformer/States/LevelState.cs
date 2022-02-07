@@ -46,22 +46,20 @@ namespace Platformer.States
             {
                 case -1:
                     return GameData.level_0;
-                    break;
                 case 0:
-                    return GameData.level_1;
-                    break;
+                    return GameData.level_0;
                 default: // means that we restarted the game from the beginning basically, restart the counter too
                     PlayerStats.CompletedLevels = -1;
                     PlayerStats.Save();
                     return GameData.level_0;
-                    break;
+                
             }
         }
         public override void LoadContent()
         {
             //create the level
             var levelData = SwitchLevel();
-            Level = new Level(_game, _spriteBatch, _graphicsDevice, _content, levelData); 
+            Level = new Level(_game, _spriteBatch, _graphicsDevice, _content, levelData); ;
         }
 
         public override void Update(GameTime gameTime)
@@ -73,7 +71,7 @@ namespace Platformer.States
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _spriteBatch));
 
             }
-            Level.Update();
+            Level.Update(gameTime);
 
 
         }

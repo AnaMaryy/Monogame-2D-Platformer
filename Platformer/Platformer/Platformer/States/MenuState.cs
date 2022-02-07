@@ -41,25 +41,25 @@ namespace Platformer.States
                 _game.ChangeScreenSize(ScreenWidth, ScreenHeight);
             }
 #endif
-            var playGameButton = new Button(buttonTexture, buttonFont)
+            var playGameButton = new Button(buttonTexture, buttonFont, new Vector2(ScreenWidth / 2, 200))
             {
-                Position = new Vector2(ScreenWidth / 2, 200),
+               // Position = new Vector2(ScreenWidth / 2, 200),
                 Text = SwitchPlayButtonName(),
             };
 
             playGameButton.Click += Button_PlayGame_Click;
 
-            var settingsButton = new Button(buttonTexture, buttonFont)
+            var settingsButton = new Button(buttonTexture, buttonFont, new Vector2(ScreenWidth / 2, 300))
             {
-                Position = new Vector2(ScreenWidth / 2, 300),
+               // Position = new Vector2(ScreenWidth / 2, 300),
                 Text = "Settings",
             };
 
             settingsButton.Click += Button_Settings_Click;
 
-            var quitGameButton = new Button(buttonTexture, buttonFont)
+            var quitGameButton = new Button(buttonTexture, buttonFont, new Vector2(ScreenWidth / 2, 400))
             {
-                Position = new Vector2(ScreenWidth / 2, 400),
+                //Position = new Vector2(ScreenWidth / 2, 400),
                 Text = "Quit Game",
             };
 

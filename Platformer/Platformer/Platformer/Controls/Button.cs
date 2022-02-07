@@ -6,6 +6,7 @@ using Platformer.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace Platformer.Controls
         private bool _isHovering;
 
 
-        private Texture2D _texture;
+        public Texture2D Texture;
 
         #endregion
 
@@ -36,37 +37,31 @@ namespace Platformer.Controls
 
         public float Layer { get; set; } // what texture is on top
 
-        public Vector2 Origin // origin point of button probably
-        {
-            get
-            {
-                return new Vector2(_texture.Width / 2, _texture.Height / 2);
-            }
-        }
+        // origin point of button probably
+        public Vector2 Origin {get;set;}
 
         public Color PenColour { get { return Color.Black; } }
 
         public Vector2 Position { get; set; }
-
-        public Rectangle Rectangle //rectangle of the button
-        {
-            get
-            {
-                return new Rectangle((int)Position.X - ((int)Origin.X), (int)Position.Y - (int)Origin.Y, _texture.Width, _texture.Height);
-            }
-        }
+        //rectangle of the button
+        public Rectangle Rectangle { get; set; } //rectangle of the button
+        
 
         public string Text;
+        public string Type; // type of button -> android game gui button ; game
 
         #endregion
 
         #region Methods
 
-        public Button(Texture2D texture, SpriteFont font)
+        public Button(Texture2D texture, SpriteFont font, Vector2 position)
         {
-            _texture = texture;
+            Texture = texture;
 
             _font = font;
+            Position = position;
+            Origin = new Vector2(Texture.Width / 2, Texture.Height / 2);
+            Rectangle = new Rectangle((int)Position.X - ((int)Origin.X), (int)Position.Y - (int)Origin.Y, Texture.Width, Texture.Height);
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -76,7 +71,7 @@ namespace Platformer.Controls
             if (_isHovering)
                 colour = Color.Gray;
             //where the f do we get the position of the button?
-            spriteBatch.Draw(_texture, Position, null, colour, 0f, Origin, 1f, SpriteEffects.None, Layer);
+            spriteBatch.Draw(Texture, Position, null, colour, 0f, Origin, 1f, SpriteEffects.None, Layer);
 
 
             if (!string.IsNullOrEmpty(Text)) //draws the string
@@ -119,9 +114,22 @@ namespace Platformer.Controls
 
             TouchCollection touchState = TouchPanel.GetState();
             //if new click
-            if (TouchInput.CheckTouch(Rectangle, touchState)) {           
-                Click?.Invoke(this, new EventArgs());
+            if(Type == "game")
+            {
+                Rectangle = new Rectangle((int)Position.X - ((int)Origin.X), (int)Position.Y - (int)Origin.Y, Texture.Width, Texture.Height);
+                if (TouchInput.CheckTouchGameGui(Rectangle, touchState))
+                {
+                    Click?.Invoke(this, new EventArgs());
+                }
             }
+            else
+            {
+                if (TouchInput.CheckTouch(Rectangle, touchState))
+                {
+                    Click?.Invoke(this, new EventArgs());
+                }
+            }
+           
         }
        
 #endif

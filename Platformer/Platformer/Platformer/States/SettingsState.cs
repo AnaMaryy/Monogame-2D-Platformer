@@ -63,9 +63,9 @@ namespace Platformer.States
 
             soundEffectsVolumeSlider.Click += Slider_SoundEffectsVolume_Click;
 
-            var backButton = new Button(buttonTexture, Font)
+            var backButton = new Button(buttonTexture, Font, new Vector2(ScreenWidth / 2, 380))
             {
-                Position = new Vector2(ScreenWidth / 2, 380),
+                //Position = new Vector2(ScreenWidth / 2, 380),
                 Text = "Back",
             };
 
@@ -84,8 +84,8 @@ namespace Platformer.States
             if (slider != null)
             {
                 float volume = slider.Value;
-                //PlayerStats.MusicVolume = volume;
-                //PlayerStats.Save();
+                PlayerStats.MusicVolume = volume;
+                PlayerStats.Save();
             }
         }
 
@@ -95,8 +95,8 @@ namespace Platformer.States
             if (slider != null)
             {
                 float volume = slider.Value;
-                //PlayerStats.SoundEffectsVolume = volume;
-                //PlayerStats.Save();
+                PlayerStats.SoundEffectsVolume = volume;
+                PlayerStats.Save();
             }
         }
         private void Button_Back_Click(object sender, EventArgs e)

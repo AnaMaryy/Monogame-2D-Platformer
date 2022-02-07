@@ -40,17 +40,17 @@ namespace Platformer.States
             }
 
 
-            var playAgainButton = new Button(buttonTexture, Font)
+            var playAgainButton = new Button(buttonTexture, Font, new Vector2(ScreenWidth / 2, 290))
             {
-                Position = new Vector2(ScreenWidth / 2, 290),
+                //Position = new Vector2(ScreenWidth / 2, 290),
                 Text = "Next Level",
             };
             playAgainButton.Click += Button_Play_Again_Click;
 
 
-            var mainMenuButton = new Button(buttonTexture, Font)
+            var mainMenuButton = new Button(buttonTexture, Font, new Vector2(ScreenWidth / 2, 390))
             {
-                Position = new Vector2(ScreenWidth / 2, 390),
+                //Position = new Vector2(ScreenWidth / 2, 390),
                 Text = "Main Menu",
             };
 

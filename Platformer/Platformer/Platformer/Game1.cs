@@ -67,12 +67,12 @@ namespace Platformer
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             
-            /*
+            
             //loads the settings and playerstats
             if (PlayerStats.SaveExist())
             {
                 PlayerStats.Load();
-            }*/
+            }
 
 
            
