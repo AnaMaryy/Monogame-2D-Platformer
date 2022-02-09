@@ -139,6 +139,9 @@ namespace Platformer
             GameData.ImageSprites.Add("bubbleFail", Content.Load<Texture2D>("game/human/bubble/collectBubble"));
             GameData.ImageSprites.Add("bubbleWin", Content.Load<Texture2D>("game/human/bubble/winBubble"));
             GameData.ImageSprites.Add("death", Content.Load<Texture2D>("game/dog/death"));
+            GameData.ImageSprites.Add("enemyHealthRed", new Texture2D(_graphics.GraphicsDevice, 20, 5));
+            GameData.ImageSprites.Add("enemyHealthGrey", new Texture2D(_graphics.GraphicsDevice, 20, 5));
+
 
             //load fonts
             GameData.Fonts = new Dictionary<string, SpriteFont>();

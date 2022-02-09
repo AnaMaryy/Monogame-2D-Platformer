@@ -179,6 +179,7 @@ namespace Platformer.Models
             {
                 spriteBatch.Draw(Texture, new Vector2(Rectangle.X, Rectangle.Y), null, Color.White * opacity, 0f, Vector2.Zero, Scale, SpriteEffects.FlipHorizontally, 0f);
             }
+            HealthGui.Draw(spriteBatch);
         }
         public override void Update( Vector2 playerPosition)
         {
@@ -190,6 +191,7 @@ namespace Platformer.Models
             gravity();
             MoveX(playerPosition);
             Jump();
+            HealthGui.Update(new Vector2(Rectangle.X, Rectangle.Y));
 
             Rectangle = new Rectangle((int)(Rectangle.X + Direction.X * Speed) , (int)(Rectangle.Y + Direction.Y) , (int)(Texture.Width * Scale), (int)(Texture.Height * Scale));
 

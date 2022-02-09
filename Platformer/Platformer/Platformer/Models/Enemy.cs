@@ -28,6 +28,7 @@ namespace Platformer.Models
         public bool Immortal { get; private set; }
         public int ImmortalDuration { get; private set; }
         public int HurtTime { get; private set; }
+        public EnemyHealthGui HealthGui { get; private set; }
 
         public string Type { get; set; }//type of enemy -> used for casting
         public Enemy(Vector2 position, Dictionary<string, List<Texture2D>> textures, float scale, string type)
@@ -50,6 +51,10 @@ namespace Platformer.Models
 
             //health
             MaxHealth = 1;
+            if(type == "boss")
+            {
+                HealthGui = new EnemyHealthGui(3, new Vector2(Rectangle.X-5, Rectangle.Y-10),Texture);
+            }
             CurrentHealth = 1;
             Immortal = false;
             ImmortalDuration = (int)(60 * 1.5f);//immortal for 1.5 s
@@ -104,6 +109,10 @@ namespace Platformer.Models
         public void changeHealth(int health)
         {
             CurrentHealth += health;
+            if (Type == "boss")
+            {
+                 HealthGui.TakeDamage(health);
+            }
         }
         public abstract void Draw(SpriteBatch spriteBatch);
         public abstract void Update( Vector2 playerPosition);
@@ -139,12 +148,13 @@ namespace Platformer.Models
                 spriteBatch.Draw(Texture, new Vector2(Rectangle.X, Rectangle.Y), null, Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.FlipHorizontally, 0f);
 
             }
+           
         }
         public override void Update(Vector2 playerPosition)
         {
             Animate();
             Move();
-
+            
         }
     }
 
@@ -197,7 +207,6 @@ namespace Platformer.Models
         {
 
             spriteBatch.Draw(Texture, new Vector2(Rectangle.X, Rectangle.Y), null, Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.FlipHorizontally, 0f);
-
         }
         public override void Update( Vector2 playerPosition)
         {
@@ -207,11 +216,85 @@ namespace Platformer.Models
             Rectangle = new Rectangle(Rectangle.X , (int)(Rectangle.Y + Direction.Y) , (int)(Texture.Width * Scale), (int)(Texture.Height * Scale));
             Animate();
 
+
         }
     }
 
-    public class EnemyHealthGui // made with primitives
+    public class EnemyHealthGui // made with primitives, created in the specific enemy class
     {
+        public int MaxLives { get; set; }
+        public int CurrentLives { get; set; }
+        public Vector2 Position { get; set; }
+        private Texture2D RedRectangleTexture { get; set; }
+        private Texture2D GreyRectangleTexture { get; set; }
+
+        public int ChunkForOneHeart { get; private set; }
+        private int offsetY { get; set; }
+        private int offsetX { get; set; }
+
+
+        public EnemyHealthGui(int lives, Vector2 position, Texture2D enemyTexture)
+        {
+            MaxLives = lives;
+            CurrentLives = lives;
+            Position = position;
+            RedRectangleTexture = GameData.ImageSprites["enemyHealthRed"];
+            GreyRectangleTexture = GameData.ImageSprites["enemyHealthGrey"];
+            setRectangleColor();
+
+            ChunkForOneHeart = 20; // one heart is 20 pixels long
+            //set the offsets :
+            offsetX = enemyTexture.Width / 2 - lives*RedRectangleTexture.Width / 2-5;
+            offsetY = -10;
+
+        }
+        // sets the rectangle based on the number of current lives
+        private void setRectangleColor()
+        {
+
+            Color[] dataRed = new Color[RedRectangleTexture.Width * RedRectangleTexture.Height];
+            Color[] dataGrey = new Color[GreyRectangleTexture.Width * GreyRectangleTexture.Height];
+
+            for (int i =0; i < dataRed.Length; ++i)
+            {
+                dataRed[i] = Color.Red;
+                dataGrey[i] = Color.Gray;
+            }
+            RedRectangleTexture.SetData(dataRed);
+            GreyRectangleTexture.SetData(dataGrey);
+
+
+        }
+        public void TakeDamage(int health)
+        {
+            CurrentLives += health; 
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            int x = (int)Position.X;
+            int y =(int) Position.Y;
+            for(int i = 1; i<=MaxLives; ++i)
+            {
+                //draw full lives
+                if(i <= CurrentLives)
+                {
+                    spriteBatch.Draw(RedRectangleTexture, new Vector2(x, y), Color.White);
+                }
+                else
+                {
+                   spriteBatch.Draw(GreyRectangleTexture, new Vector2(x, y), Color.White);
+
+                }
+                x = x + ChunkForOneHeart;
+                //draw grey lives
+            }
+           
+
+        }
+        public void Update(Vector2 enemyPosition)
+        {
+            Position = new Vector2(enemyPosition.X +offsetX, enemyPosition.Y + offsetY);
+        }
 
     }
 }
