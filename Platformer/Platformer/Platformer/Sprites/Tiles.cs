@@ -150,7 +150,7 @@ namespace Platformer.Sprites
         //timer
         public Timer TalkTimer { get; set; }
         public bool Win { get; set; }
-       
+        public Vector2 CagePosition { get; set; }
 
         public HumanTile(Texture2D image, Vector2 position, Rectangle? drawRectangle, List<Texture2D> textures, int? tilesize) : base(image, position, drawRectangle, textures, tilesize)
         {
@@ -159,13 +159,24 @@ namespace Platformer.Sprites
             PositionY = (int)position.Y;
             int offsetY = (int)(position.Y + GameData.TileSize - image.Height * Scale);
             Rectangle = new Rectangle((int)position.X, offsetY, TileWidth, TileHeight);
-            
+
+            //cage position
+            var x = Rectangle.X - 30;
+            var y = Rectangle.Y + image.Height * Scale - GameData.ImageSprites["cage"].Height+1;
+            CagePosition = new Vector2(x, y);
+
             Win = false;
             TalkTimer = new Timer(2f);
            
         }
         public new void Draw(SpriteBatch spriteBatch)
         {
+            //human
+            spriteBatch.Draw(Texture, new Vector2(Rectangle.X, Rectangle.Y - 13), null, Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.FlipHorizontally, 0f);
+            //cage
+
+            spriteBatch.Draw(GameData.ImageSprites["cage"], CagePosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+
             //bubble
             if (TalkTimer.Wait)
             {
@@ -182,11 +193,10 @@ namespace Platformer.Sprites
                     spriteBatch.Draw(GameData.ImageSprites["bubbleFail"], position, null, Color.White, 0f, Vector2.Zero, BubbleScale, SpriteEffects.None, 0f);
                 }
             }
-            //human
-            spriteBatch.Draw(Texture, new Vector2(Rectangle.X, Rectangle.Y), null, Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.FlipHorizontally, 0f);
+           
 
         }
-       
+
         public void Update()
         {
             Animate();

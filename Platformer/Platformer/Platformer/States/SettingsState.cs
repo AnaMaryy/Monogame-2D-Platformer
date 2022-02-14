@@ -38,34 +38,22 @@ namespace Platformer.States
             }
 #endif
 
-            var buttonTexture = _content.Load<Texture2D>("menu/button2");
+            var buttonTexture =GameData.ImageSprites["button3"];
             Font =GameData.Fonts["ThaleahFat_Normal"];
             TitleFont = GameData.Fonts["ThaleahFat_Title"];
 
-            var volumeSliderTexture = _content.Load<Texture2D>("settings/VolumeSlider");
-            var volumeBallTexture = _content.Load<Texture2D>("settings/VolumeBall");
+            var volumeSliderTexture = GameData.ImageSprites["VolumeSlider"];
+            var volumeBallTexture = GameData.ImageSprites["VolumeBall"];
 
 
-            var musicVolumeSlider = new Slider(volumeSliderTexture, volumeBallTexture, new Vector2(ScreenWidth / 2, 190), PlayerStats.MusicVolume)
-            {
-                //Position = new Vector2(ScreenWidth / 2, 190),
-                //Value = GameData.MusicVolume
-
-            };
-
+            var musicVolumeSlider = new Slider(volumeSliderTexture, volumeBallTexture, new Vector2(ScreenWidth / 2, 190), PlayerStats.MusicVolume);
             musicVolumeSlider.Click += Slider_MusicVolume_Click;
 
-            var soundEffectsVolumeSlider = new Slider(volumeSliderTexture, volumeBallTexture, new Vector2(ScreenWidth / 2, 290), PlayerStats.SoundEffectsVolume)
-            {
-                //Position = new Vector2(ScreenWidth / 2, 290),
-                //Value = GameData.SoundEffectsVolume
-            };
-
+            var soundEffectsVolumeSlider = new Slider(volumeSliderTexture, volumeBallTexture, new Vector2(ScreenWidth / 2, 290), PlayerStats.SoundEffectsVolume);
             soundEffectsVolumeSlider.Click += Slider_SoundEffectsVolume_Click;
 
-            var backButton = new Button(buttonTexture, Font, new Vector2(ScreenWidth / 2, 380))
+            var backButton = new Button(buttonTexture, Font, new Vector2(ScreenWidth / 2, 380), null)
             {
-                //Position = new Vector2(ScreenWidth / 2, 380),
                 Text = "Back",
             };
 
@@ -113,12 +101,10 @@ namespace Platformer.States
 
         public override void Update(GameTime gameTime)
         {
-
-
-
-#if DESKTOP
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _spriteBatch));
+                _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _spriteBatch));
+#if DESKTOP
+           
             foreach(var component in components)
                 component.Update(gameTime);
 #elif ANDROID

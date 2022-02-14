@@ -39,7 +39,7 @@ namespace Platformer.Controls
 
         // origin point of button probably
         public Vector2 Origin {get;set;}
-
+        public float Scale { get; set; }
         public Color PenColour { get { return Color.Black; } }
 
         public Vector2 Position { get; set; }
@@ -54,14 +54,22 @@ namespace Platformer.Controls
 
         #region Methods
 
-        public Button(Texture2D texture, SpriteFont font, Vector2 position)
+        public Button(Texture2D texture, SpriteFont font, Vector2 position,float? scale)
         {
+            if(scale == null)
+            {
+                Scale = 1.0f;
+            }
+            else
+            {
+                Scale = (float)scale;
+            }
             Texture = texture;
 
             _font = font;
             Position = position;
-            Origin = new Vector2(Texture.Width / 2, Texture.Height / 2);
-            Rectangle = new Rectangle((int)Position.X - ((int)Origin.X), (int)Position.Y - (int)Origin.Y, Texture.Width, Texture.Height);
+            Origin = new Vector2((Texture.Width ) / 2, (Texture.Height)/ 2);
+            Rectangle = new Rectangle((int)Position.X - ((int)Origin.X), (int)Position.Y - (int)Origin.Y, (int)(Texture.Width), (int)(Texture.Height));
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -71,7 +79,7 @@ namespace Platformer.Controls
             if (_isHovering)
                 colour = Color.Gray;
             //where the f do we get the position of the button?
-            spriteBatch.Draw(Texture, Position, null, colour, 0f, Origin, 1f, SpriteEffects.None, Layer);
+            spriteBatch.Draw(Texture, Position, null, colour, 0f, Origin, Scale, SpriteEffects.None, Layer);
 
 
             if (!string.IsNullOrEmpty(Text)) //draws the string
@@ -79,7 +87,7 @@ namespace Platformer.Controls
                 var x = (Rectangle.X + (Rectangle.Width / 2)) - (_font.MeasureString(Text).X / 2);
                 var y = (Rectangle.Y + (Rectangle.Height / 2)) - (_font.MeasureString(Text).Y / 2);
 
-                spriteBatch.DrawString(_font, Text, new Vector2(x, y), PenColour, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, Layer + 0.01f);
+                spriteBatch.DrawString(_font, Text, new Vector2(x, y), PenColour, 0f, new Vector2(0, 0), Scale, SpriteEffects.None, Layer + 0.01f);
 
             }
         }
@@ -111,14 +119,16 @@ namespace Platformer.Controls
 #elif ANDROID
         public override void Update(GameTime gameTime)
         {
-
+            _isHovering = false;
             TouchCollection touchState = TouchPanel.GetState();
             //if new click
             if(Type == "game")
             {
-                Rectangle = new Rectangle((int)Position.X - ((int)Origin.X), (int)Position.Y - (int)Origin.Y, Texture.Width, Texture.Height);
+                Rectangle = new Rectangle((int)Position.X - ((int)Origin.X), (int)Position.Y - (int)Origin.Y, (int)(Texture.Width*Scale), (int)(Texture.Height*Scale));
                 if (TouchInput.CheckTouchGameGui(Rectangle, touchState))
                 {
+                    _isHovering = true;
+
                     Click?.Invoke(this, new EventArgs());
                 }
             }
@@ -126,6 +136,8 @@ namespace Platformer.Controls
             {
                 if (TouchInput.CheckTouch(Rectangle, touchState))
                 {
+                    _isHovering = true;
+
                     Click?.Invoke(this, new EventArgs());
                 }
             }

@@ -37,25 +37,25 @@ namespace Platformer.GUI
 
             //all the buttons
             var font = GameData.Fonts["ThaleahFat_Title"];
-            var upButton = new Button(GameData.ImageSprites["buttonUp"], font,UpPosition)
+            var upButton = new Button(GameData.ImageSprites["buttonUp"], font,UpPosition,null)
             {
                 //Position = UpPosition,
                 Text = "",
                 Type = "game",
             };
-            var downButton = new Button(GameData.ImageSprites["buttonDown"], font,DownPosition)
+            var downButton = new Button(GameData.ImageSprites["buttonDown"], font,DownPosition, null)
             {
                 //Position = DownPosition,
                 Text = "",
                 Type ="game",
             };
-            var leftButton = new Button(GameData.ImageSprites["buttonLeft"], font,LeftPosition)
+            var leftButton = new Button(GameData.ImageSprites["buttonLeft"], font,LeftPosition, null)
             {
                 //Position = LeftPosition,
                 Text = "",
                 Type ="game",
             };
-            var rightButton = new Button(GameData.ImageSprites["buttonRight"], font,RightPosition)
+            var rightButton = new Button(GameData.ImageSprites["buttonRight"], font,RightPosition, null)
             {
                 //Position = RightPosition,
                 Text = "",
@@ -102,11 +102,18 @@ namespace Platformer.GUI
         public void Update(Vector2 center, GameTime gameTime)
         {
             //updates based on the position of the player
+            /*
             OriginalPosition = new Vector2((int)center.X - GameData.AndroidScreenWidth / 7 + 20, (int)center.Y + GameData.AndroidScreenHeight / 6);
             LeftPosition = new Vector2(OriginalPosition.X , OriginalPosition.Y );
             RightPosition = new Vector2(OriginalPosition.X + (int)(1.5f*Buttons["left"].Texture.Width), OriginalPosition.Y );
             DownPosition = new Vector2((int)center.X + GameData.AndroidScreenWidth / 9, OriginalPosition.Y);
             UpPosition = new Vector2(DownPosition.X+ 2*Buttons["down"].Texture.Width , OriginalPosition.Y );
+            */
+            OriginalPosition = new Vector2((int)center.X - GameData.LevelScreenWidth / 8 *3, (int)center.Y + GameData.LevelScreenHeight / 8*3);
+            LeftPosition = new Vector2(OriginalPosition.X, OriginalPosition.Y);
+            RightPosition = new Vector2(OriginalPosition.X + (int)(1.5f * Buttons["left"].Texture.Width), OriginalPosition.Y);
+            DownPosition = new Vector2((int)center.X + GameData.LevelScreenWidth / 8 * 2, OriginalPosition.Y);
+            UpPosition = new Vector2(DownPosition.X + 2 * Buttons["down"].Texture.Width, OriginalPosition.Y);
 
             Buttons["up"].Position = UpPosition;
             Buttons["down"].Position = DownPosition;

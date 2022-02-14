@@ -13,6 +13,7 @@ namespace Platformer.Utilities
         public float MusicVolume { get; set; }
         public float SoundEffectsVolume { get; set; }
         public int CompletedLevels { get; set; }
+        public Dictionary<string, List<int>> HighScores { get; set; } //{level_number: [coins, time_in_seconds] }
 
     }
     //class used for saving game state
@@ -23,11 +24,32 @@ namespace Platformer.Utilities
         public static float MusicVolume { get; set; } = 0.1f;
         public static float SoundEffectsVolume { get; set; } = 0.1f;
         public static int CompletedLevels { get; set; } = -1; //Number of completed levels
+        public static Dictionary<string, List<int>> HighScores { get; set; } = new Dictionary<string, List<int>>(); 
+
 
         #endregion
         private const string PATH = "stats.json";
 
         #region Methods
+        public static void AddToHighscoreDictionary(string key, List<int> value)
+        {
+            if(HighScores == null)
+            {
+                HighScores = new Dictionary<string, List<int>>();
+            }
+            if ( HighScores.ContainsKey(key))
+            {
+                //save the better result
+                if(value[0]>= HighScores[key][0] || value[0] >= HighScores[key][0] && value[1] < HighScores[key][1])
+                {
+                    HighScores[key] = value;
+                }
+            }
+            else
+            {
+                HighScores.Add(key, value);
+            }
+        }
 #if DESKTOP
         public static bool SaveExist()//checks if the save file exists or not
         {
@@ -39,6 +61,7 @@ namespace Platformer.Utilities
             obj.MusicVolume = MusicVolume;
             obj.SoundEffectsVolume = SoundEffectsVolume;
             obj.CompletedLevels = CompletedLevels;
+            obj.HighScores =HighScores;
 
 
             string serializedText = JsonSerializer.Serialize<SaveStats>(obj);
@@ -56,11 +79,12 @@ namespace Platformer.Utilities
             var deserializedData = File.ReadAllText(PATH);
             var data = JsonSerializer.Deserialize<SaveStats>(deserializedData);
             //set the class ? maybe faster way to do this in c?
-            Trace.WriteLine("loaded:" + data.MusicVolume + "  " + data.SoundEffectsVolume);
 
             MusicVolume = data.MusicVolume;
             SoundEffectsVolume = data.SoundEffectsVolume;
             CompletedLevels = data.CompletedLevels;
+            HighScores = data.HighScores;
+
 
 
         }
@@ -80,11 +104,11 @@ namespace Platformer.Utilities
             obj.MusicVolume = MusicVolume;
             obj.SoundEffectsVolume = SoundEffectsVolume;
             obj.CompletedLevels = CompletedLevels;
+            obj.HighScores = HighScores;
+
 
 
             string serializedText = JsonSerializer.Serialize<SaveStats>(obj);
-            Trace.WriteLine("Saved:" + serializedText);
-
             writer.WriteLine(serializedText);
             writer.Close();
         }
@@ -104,6 +128,8 @@ namespace Platformer.Utilities
                 MusicVolume = data.MusicVolume;
                 SoundEffectsVolume = data.SoundEffectsVolume;
                 CompletedLevels = data.CompletedLevels;
+                HighScores = data.HighScores;
+
 
             }
             catch

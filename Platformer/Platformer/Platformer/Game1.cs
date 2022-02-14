@@ -136,11 +136,38 @@ namespace Platformer
             GameData.ImageSprites.Add("instructionBone", Content.Load<Texture2D>("game/instructions/jumpBoardSniff"));
             GameData.ImageSprites.Add("instructionMove", Content.Load<Texture2D>("game/instructions/moveBoard"));
             GameData.ImageSprites.Add("instructionJump", Content.Load<Texture2D>("game/instructions/jumpBoardSpacebar1"));
+            GameData.ImageSprites.Add("instructionDropBone", Content.Load<Texture2D>("game/instructions/jumpBoardDropBone"));
+
             GameData.ImageSprites.Add("bubbleFail", Content.Load<Texture2D>("game/human/bubble/collectBubble"));
             GameData.ImageSprites.Add("bubbleWin", Content.Load<Texture2D>("game/human/bubble/winBubble"));
             GameData.ImageSprites.Add("death", Content.Load<Texture2D>("game/dog/death"));
+            GameData.ImageSprites.Add("cage", Content.Load<Texture2D>("game/human/cage"));
+
             GameData.ImageSprites.Add("enemyHealthRed", new Texture2D(_graphics.GraphicsDevice, 20, 5));
             GameData.ImageSprites.Add("enemyHealthGrey", new Texture2D(_graphics.GraphicsDevice, 20, 5));
+
+            GameData.ImageSprites.Add("playButton", Content.Load<Texture2D>("menu/playButton"));
+            GameData.ImageSprites.Add("highscoreButton", Content.Load<Texture2D>("menu/highscoreButton"));
+            GameData.ImageSprites.Add("settingsButton", Content.Load<Texture2D>("menu/settingsButton"));
+            GameData.ImageSprites.Add("exitButton", Content.Load<Texture2D>("menu/exitButton"));
+            GameData.ImageSprites.Add("creditsButton", Content.Load<Texture2D>("menu/creditsButton"));
+            GameData.ImageSprites.Add("button2", Content.Load<Texture2D>("menu/button2"));
+            GameData.ImageSprites.Add("cover", Content.Load<Texture2D>("menu/cover"));
+            GameData.ImageSprites.Add("cover2", Content.Load<Texture2D>("menu/cover2"));
+
+            GameData.ImageSprites.Add("VolumeSlider", Content.Load<Texture2D>("settings/VolumeSlider"));
+            GameData.ImageSprites.Add("VolumeBall", Content.Load<Texture2D>("settings/VolumeBall"));
+            GameData.ImageSprites.Add("button3", Content.Load<Texture2D>("menu/button3"));
+            GameData.ImageSprites.Add("StartStoryBoard", Content.Load<Texture2D>("game/board/StartStoryBoard"));
+
+            /*
+            GameData.ImageSprites.Add("StartStoryBoard", new Texture2D(_graphics.GraphicsDevice, 900,480));
+            Color[] color = new Color[900 * 480];
+            for(int i = 0; i< color.Length; i++)
+            {
+                color[i] = Color.White;
+            }
+            GameData.ImageSprites["StartStoryBoard"].SetData(color);*/
 
 
             //load fonts

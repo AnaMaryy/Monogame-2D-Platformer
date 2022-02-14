@@ -244,7 +244,7 @@ namespace Platformer.Models
 
             ChunkForOneHeart = 20; // one heart is 20 pixels long
             //set the offsets :
-            offsetX = enemyTexture.Width / 2 - lives*RedRectangleTexture.Width / 2-5;
+            offsetX = enemyTexture.Width / 2 - lives*RedRectangleTexture.Width / 2-7;
             offsetY = -10;
 
         }

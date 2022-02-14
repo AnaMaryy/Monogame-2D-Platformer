@@ -347,3 +347,11 @@ D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.D
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\bin\Debug\netcoreapp3.1\Content\sound\jump2.xnb
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\bin\Debug\netcoreapp3.1\Content\sound\lose.xnb
 D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\bin\Debug\netcoreapp3.1\Content\game\dog\death.xnb
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\bin\Debug\netcoreapp3.1\Content\menu\creditsButton.xnb
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\bin\Debug\netcoreapp3.1\Content\menu\exitButton.xnb
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\bin\Debug\netcoreapp3.1\Content\menu\highscoreButton.xnb
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\bin\Debug\netcoreapp3.1\Content\menu\playButton.xnb
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\bin\Debug\netcoreapp3.1\Content\menu\settingsButton.xnb
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\bin\Debug\netcoreapp3.1\Content\menu\button3.xnb
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\bin\Debug\netcoreapp3.1\Content\game\board\StartStoryBoard.xnb
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\bin\Debug\netcoreapp3.1\Content\game\human\cage.xnb

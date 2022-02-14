@@ -28,12 +28,12 @@ namespace Platformer.Android
             _view = _game.Services.GetService(typeof(View)) as View;
             SetContentView(_view);
             _game.Run();
-
+            /*
             _game.GameFinished +=
               (sender, e) =>
               {
                   Process.KillProcess(Process.MyPid());
-              };
+              };*/
             //SetImmersive();
             //_view.SystemUiVisibility = (StatusBarVisibility)SystemUiFlags.HideNavigation | (StatusBarVisibility)SystemUiFlags.ImmersiveSticky;
             //_view.SetOnSystemUiVisibilityChangeListener(new MyUiVisibilityChangeListener(_view));

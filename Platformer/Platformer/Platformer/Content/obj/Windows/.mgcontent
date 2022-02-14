@@ -22,6 +22,7 @@
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/background/plx4.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/background/plx5.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/background/waterFront.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/board/StartStoryBoard.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-0.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-1.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/bone/pixil-frame-2.png</File>
@@ -133,9 +134,11 @@
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/hearts/heart3.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/human/bubble/collectBubble.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/human/bubble/winBubble.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/human/cage.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/human/idle/FinnSprite.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/human/idle/FinnSprite1.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/human/idle/FinnSprite3.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/instructions/jumpBoardDropBone.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/instructions/jumpBoardSniff.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/instructions/jumpBoardSpacebar1.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/game/instructions/moveBoard.png</File>
@@ -143,7 +146,14 @@
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/BG Image.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/Big Clouds.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/button2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/button3.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/cover.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/cover2.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/creditsButton.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/exitButton.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/highscoreButton.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/playButton.png</File>
+    <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/settingsButton.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/Small Cloud 1.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/SmallCloud2.png</File>
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/menu/SmallCloud3.png</File>
@@ -164,6 +174,16 @@
     <File>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/win.wav</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

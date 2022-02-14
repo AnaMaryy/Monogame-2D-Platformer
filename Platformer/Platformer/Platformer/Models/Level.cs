@@ -67,8 +67,10 @@ namespace Platformer.Models
         //timer
         public bool Lose { get; set; }
         public Timer LoseTimer { get; set; }
+        public Timer WinTimer { get; set; }
 
-       
+        public Stopwatch Stopwatch { get; private set; }
+        public StoryBoard StoryBoard { get; set; }
 
         public Level(Game1 game, SpriteBatch spriteBatch, GraphicsDevice graphicsDevice, ContentManager content, Dictionary<string, string> levelData)
         {
@@ -142,6 +144,21 @@ namespace Platformer.Models
             //timer
             Lose = false;
             LoseTimer = new Timer(1f);
+            WinTimer = new Timer(0.5f);
+
+            //stopwatch -> for keeping track of the highscore
+            Stopwatch = new Stopwatch();
+            Stopwatch.Start();
+
+            //create storyboard if level 1 
+            if(PlayerStats.CompletedLevels ==-1)
+            {
+                StoryBoard = new StoryBoard(GameData.ImageSprites["StartStoryBoard"], "close");
+            }
+            else
+            {
+                StoryBoard = null;
+            }
 
         }
         //loads the content of all the files -> stores them into two dicts
@@ -336,9 +353,14 @@ namespace Platformer.Models
                             {
                                 texture = GameData.ImageSprites["instructionJump"];
                             }
-                            else 
+                            else if(val1 ==2)
                             {
                                 texture = GameData.ImageSprites["instructionBone"];
+                            }
+                            else
+                            {
+                                texture = GameData.ImageSprites["instructionDropBone"];
+
                             }
                             InstructionTile tile = new InstructionTile(texture, new Vector2(x, y), null, null);
                             tiles.Add(tile);
@@ -505,24 +527,34 @@ namespace Platformer.Models
                 //win
                 if(BonesCurrent >= BonesNeeded)
                 {
-                    PlayerStats.CompletedLevels += 1;
-                    PlayerStats.Save();
-                    GameData.SoundEffects["win"].Play(volume: PlayerStats.SoundEffectsVolume, 0.0f, 0.0f);
-                    //bubble
-                    EndLevelTile.Win = true;
-                    //wait one second
-                    System.Threading.Thread.Sleep(1000);
-
-                    if (GameData.NumberOfLevels == PlayerStats.CompletedLevels + 1)
+                    if (!EndLevelTile.Win)
                     {
-                        _game.ChangeState(new ThankYouState(_game, _graphicsDevice, _content, _spriteBatch));
+                        Stopwatch.Stop();
+                        int seconds = Stopwatch.Elapsed.Seconds;
 
+                        PlayerStats.CompletedLevels += 1;
+                        PlayerStats.AddToHighscoreDictionary(PlayerStats.CompletedLevels.ToString(), new List<int> { Coins, seconds });
+                        PlayerStats.Save();
+                        GameData.SoundEffects["win"].Play(volume: PlayerStats.SoundEffectsVolume, 0.0f, 0.0f);
+                        //bubble
+                        EndLevelTile.Win = true;
+                        WinTimer.Wait = true;
                     }
-                    else
+                    //timer
+                    if (EndLevelTile.Win && !WinTimer.Wait)
                     {
-                        _game.ChangeState(new NextLevelState(_game, _graphicsDevice, _content, _spriteBatch));
-                    }
+                        //wait one second
 
+                        if (GameData.NumberOfLevels == PlayerStats.CompletedLevels + 1)
+                        {
+                            _game.ChangeState(new ThankYouState(_game, _graphicsDevice, _content, _spriteBatch));
+
+                        }
+                        else
+                        {
+                            _game.ChangeState(new NextLevelState(_game, _graphicsDevice, _content, _spriteBatch));
+                        }
+                    }
                 }
                
             }
@@ -534,7 +566,7 @@ namespace Platformer.Models
             //if no health or out of bounds
             if ((Player.CurrentHealth <= 0) || (Player.Rectangle.Y+Player.Height >= DeathLine))
             {
-                _spriteBatch.Draw(GameData.ImageSprites["death"], new Vector2(Player.Rectangle.X, Player.Rectangle.Y), Color.White);
+                //_spriteBatch.Draw(GameData.ImageSprites["death"], new Vector2(Player.Rectangle.X, Player.Rectangle.Y), Color.White);
                 if (!Lose)
                 {
                     Lose = true;
@@ -692,30 +724,70 @@ namespace Platformer.Models
         }
         public void Update(GameTime gameTime)
         {
-            if (!Lose)
+            //normal game logic -> neither lost or won the game
+            if (!Lose && !EndLevelTile.Win)
             {
+                //camera
                 _camera.Follow(Player);
                 GameData.CameraMatrix = _camera.CameraMatrix;
-                //from the center of the player and also relative to the device width/height
+
+                //player
                 Player.Update();
                 horizontalMovementCollision();
                 verticalMovementCollision();
+
+                //collisions with player and interactable objects
+                coinCollision();
+                enemyCollision();
+                boneCollision();
+                heartCollision();
+
+                //game rules
+                checkDeath();
+                checkWin();
+
+                //gui
                 Gui.Update(_camera.CenterPosition);
 #if ANDROID
-                Player.AndroidGui.Update(_camera.CenterPosition, gameTime);
+                if (StoryBoard == null ||  StoryBoard != null && StoryBoard.Clicked)
+                {
+                    Player.AndroidGui.Update(_camera.CenterPosition, gameTime);
+                }
+#endif
+
+            }else if (EndLevelTile.Win) //won the game, wait for the timer
+            {
+                //win timer 
+                WinTimer.Update();
+                checkWin();
+
+                //camera
+                _camera.Follow(Player);
+                GameData.CameraMatrix = _camera.CameraMatrix;
+
+                //player
+                Player.Update();
+                horizontalMovementCollision();
+                verticalMovementCollision();
+
+                //gui
+                Gui.Update(_camera.CenterPosition);
+#if ANDROID
+                if(StoryBoard == null ||  StoryBoard != null && StoryBoard.Clicked)
+                {
+                    Player.AndroidGui.Update(_camera.CenterPosition, gameTime);
+
+                }
 
 #endif
 
             }
-            else
+            else //lost the game -> wait for the timer
             {
-                //timer
                 LoseTimer.Update();
+                checkDeath();
             }
-
            
-          
-
         }
         //drawing and updating the level
         public void Draw(GameTime gameTime)
@@ -725,9 +797,6 @@ namespace Platformer.Models
 #elif ANDROID
             _spriteBatch.Begin(transformMatrix: _camera.CameraMatrix * GameData.LevelScaleMatrix);
 #endif
-
-
-          
 
             //background images
             ScrollingBackground.Update();
@@ -751,8 +820,12 @@ namespace Platformer.Models
                 tile.Update();
                 tile.Draw(_spriteBatch);
             }
-            checkDeath();
-            checkWin();
+            if (Lose)//draw the death square if lost
+            {
+                _spriteBatch.Draw(GameData.ImageSprites["death"], new Vector2(Player.Rectangle.X, Player.Rectangle.Y), Color.White);
+
+            }
+          
             //for level tiles
             foreach (Tile tile in TerrainTiles)
             {
@@ -821,36 +894,34 @@ namespace Platformer.Models
             //end level tile
             EndLevelTile.Update();
             EndLevelTile.Draw(_spriteBatch);
-            //player
-            // Player.Update();
-            //horizontalMovementCollision();
-            //verticalMovementCollision();
+            
             if (!Lose)
             {
                 Player.Draw();
-
             }
 
 
             //gui
             Gui.Draw(_spriteBatch, Player.CurrentHealth, Player.MaxHealth, Coins, BonesCurrent, BonesNeeded);
 #if ANDROID
-            Player.AndroidGui.Draw(_spriteBatch,gameTime);
+            if (StoryBoard == null  || StoryBoard != null && StoryBoard.Clicked)
+            {
+                Player.AndroidGui.Draw(_spriteBatch, gameTime);
+            }
 #endif
            
-
-            //collisions with player and interactable objects
-            coinCollision();
-            enemyCollision();
-            boneCollision();
-            heartCollision();
-
             //water
             Water.Draw(_spriteBatch);
             Water.DrawFront(_spriteBatch);
 
+            //Storyboard
+            if(StoryBoard != null && !StoryBoard.Clicked)
+            {
+                var vec = new Vector2(_camera.CenterPosition.X + (Player.Width*Player.Scale) / 2, _camera.CenterPosition.Y + (Player.Height *Player.Scale) / 2 );
+                StoryBoard.Update(gameTime, vec);
+                StoryBoard.Draw(gameTime, _spriteBatch);
+            }
 
-            //TODO : maybe add all the game rules and collisions into a controller?
             _spriteBatch.End();
 
         }

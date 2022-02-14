@@ -30,6 +30,7 @@ namespace Platformer.States
 #if DESKTOP
             this.ScreenWidth = GameData.LevelScreenWidth;
             this.ScreenHeight = GameData.LevelScreenHeight;
+
 #elif ANDROID
             this.ScreenWidth = GameData.AndroidScreenWidth;
             this.ScreenHeight = GameData.AndroidScreenHeight;

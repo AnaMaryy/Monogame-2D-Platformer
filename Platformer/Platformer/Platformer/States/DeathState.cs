@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Platformer.Controls;
 using Platformer.Utilities;
 using System;
@@ -33,14 +34,14 @@ namespace Platformer.States
             }
 #endif
 
-            var buttonTexture = _content.Load<Texture2D>("menu/button2");
+            var buttonTexture = GameData.ImageSprites["button3"];
             Font = GameData.Fonts["ThaleahFat_Normal"];
             TitleFont = GameData.Fonts["ThaleahFat_Title"];
             //change width and height if values differ
           
 
 
-            var tryAgainButton = new Button(buttonTexture, Font, new Vector2(ScreenWidth / 2, 290))
+            var tryAgainButton = new Button(buttonTexture, Font, new Vector2(ScreenWidth / 2,ScreenHeight/8*3+20),null)
             {
                // Position = new Vector2(ScreenWidth / 2, 290),
                 Text = "Try Again",
@@ -48,7 +49,7 @@ namespace Platformer.States
             tryAgainButton.Click += Button_Try_Again_Click;
 
 
-            var mainMenuButton = new Button(buttonTexture, Font, new Vector2(ScreenWidth / 2, 390))
+            var mainMenuButton = new Button(buttonTexture, Font, new Vector2(ScreenWidth / 2, ScreenHeight / 8 * 4 +40), null)
             {
                // Position = new Vector2(ScreenWidth / 2, 390),
                 Text = "Main Menu",
@@ -81,6 +82,8 @@ namespace Platformer.States
 
         public override void Update(GameTime gameTime)
         {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                _game.Exit();
             foreach (var component in components)
                 component.Update(gameTime);
         }
@@ -95,7 +98,7 @@ namespace Platformer.States
 #endif
             SupportingFunctions.DrawBackground(GraphicsDictionary, _spriteBatch, ScreenWidth, ScreenHeight);
             var x = (ScreenWidth / 2) - (TitleFont.MeasureString("GAME OVER :(").X / 2);
-            _spriteBatch.DrawString(TitleFont, "GAME OVER :(", new Vector2(x, 200), Color.Black);
+            _spriteBatch.DrawString(TitleFont, "GAME OVER :(", new Vector2(x, ScreenHeight/8*2), Color.Black);
 
             foreach (var component in components)
                 component.Draw(gameTime, _spriteBatch);

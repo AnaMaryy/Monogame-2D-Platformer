@@ -39,7 +39,7 @@ namespace Platformer.States
             _spriteBatch = spriteBatch;
 #if ANDROID
             Start = true;
-            WaitDuration = (int)(60 * 1.0f);//immortal for 1.5 s
+            WaitDuration = (int)(60 * 0.05f);//immortal for 1.5 s
             Time = 0;
 #endif
         }
