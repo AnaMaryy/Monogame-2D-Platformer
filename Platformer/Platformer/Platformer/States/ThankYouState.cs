@@ -6,6 +6,7 @@ using Platformer.Controls;
 using Platformer.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace Platformer.States
@@ -58,9 +59,7 @@ namespace Platformer.States
             playAgainButton,
             mainMenuButton
         };
-            //change to the first level
-            PlayerStats.CompletedLevels = -1;
-            PlayerStats.Save();
+            
         }
         private void Button_Play_Again_Click(object sender, EventArgs e)
         {
@@ -90,7 +89,11 @@ namespace Platformer.States
 
         public override void Draw(GameTime gameTime)
         {
+#if DESKTOP
+            _spriteBatch.Begin();
+#elif ANDROID
             _spriteBatch.Begin(transformMatrix:GameData.MenuScaleMatrix);
+#endif
             SupportingFunctions.DrawBackground(GraphicsDictionary, _spriteBatch, ScreenWidth, ScreenHeight);
             
             var x = (ScreenWidth / 2) - (TitleFont.MeasureString("Thanks for playing!").X / 2);
@@ -100,16 +103,22 @@ namespace Platformer.States
             //var y1 = y + TitleFont.MeasureString("Bravo!").Y + 5;
             var y1 = ScreenHeight / 8 * 2.5f;
 
-            _spriteBatch.DrawString(Font, "Your HighScore:", new Vector2(x1, y1), Color.Black);
 
-            /*
-            var item = PlayerStats.HighScores[(PlayerStats.CompletedLevels ).ToString()];
-            string content = "Coins: " + item[0] + " | Time: " + item[1] + " seconds";
-            var x2 = (ScreenWidth / 2) - (Font.MeasureString(content).X / 2);
-            //var y2 = y1 + Font.MeasureString("Your Score:").Y + 5;
-            var y2 = ScreenHeight / 8 * 3f;
-            _spriteBatch.DrawString(Font, content, new Vector2(x2, y2), Color.Gray);
-            */
+            try
+            {
+                 _spriteBatch.DrawString(Font, "Your HighScore:", new Vector2(x1, y1), Color.Black);
+                var item = PlayerStats.HighScores[SupportingFunctions.getLastHighscoreKey()];
+                string content = "Coins: " + item[0] + " | Time: " + item[1] + " seconds";
+                var x2 = (ScreenWidth / 2) - (Font.MeasureString(content).X / 2);
+                //var y2 = y1 + Font.MeasureString("Your Score:").Y + 5;
+                var y2 = ScreenHeight / 8 * 3f;
+                _spriteBatch.DrawString(Font, content, new Vector2(x2, y2), Color.Gray);
+            }catch(Exception e)
+            {
+                Trace.WriteLine(e);
+            }
+           
+            
             foreach (var component in components)
                 component.Draw(gameTime, _spriteBatch);
             _spriteBatch.End();

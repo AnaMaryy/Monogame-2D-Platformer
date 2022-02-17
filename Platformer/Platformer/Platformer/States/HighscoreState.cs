@@ -62,12 +62,12 @@ namespace Platformer.States
         public override void Update(GameTime gameTime)
         {
 
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, _spriteBatch));
-
 #if DESKTOP
-          
-            foreach(var component in components)
+
+            foreach (var component in components)
                 component.Update(gameTime);
 #elif ANDROID
             Timer();
@@ -102,11 +102,10 @@ namespace Platformer.States
             else
             {
                 float y_grid = 1.5f;
-                int count = 0;
                 foreach (var item in PlayerStats.HighScores)
                 {
                 
-                    string level = "level " + (Int32.Parse(item.Key) + 2);
+                    string level = "level " + (Int32.Parse(item.Key) );
                     string content = "Coins: " + item.Value[0] + " | Time: " + item.Value[1] + " seconds";
                     var y_level = ScreenHeight / 8 * y_grid;
                     var x_level = (ScreenWidth / 2) - (Font.MeasureString(level).X / 2);

@@ -102,6 +102,11 @@ namespace Platformer.Controls
             _isHovering = false;
             Mouse.SetCursor(MouseCursor.Arrow);
 
+            //if new click
+            if (Type == "game")
+            {
+                Rectangle = new Rectangle((int)Position.X - ((int)Origin.X), (int)Position.Y - (int)Origin.Y, (int)(Texture.Width * Scale), (int)(Texture.Height * Scale));
+            }
             //TODO -> check this intersects
             if (mouseRectangle.Intersects(Rectangle))
             {

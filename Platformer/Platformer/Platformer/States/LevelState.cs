@@ -45,12 +45,14 @@ namespace Platformer.States
         {
             switch (PlayerStats.CompletedLevels)
             {
-                case -1:
-                    return GameData.level_0;
                 case 0:
+                    return GameData.level_0;
+                case 1:
                     return GameData.level_1;
+                case 2:
+                    return GameData.level_2;
                 default: // means that we restarted the game from the beginning basically, restart the counter too
-                    PlayerStats.CompletedLevels = -1;
+                    PlayerStats.CompletedLevels = 0;
                     PlayerStats.Save();
                     return GameData.level_0;
                 

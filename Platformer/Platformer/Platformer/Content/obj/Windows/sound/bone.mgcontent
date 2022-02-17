@@ -3,7 +3,7 @@
   <SourceFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/bone.wav</SourceFile>
   <SourceTime>2022-01-31T21:16:57.3243289-08:00</SourceTime>
   <DestFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/Windows/sound/bone.xnb</DestFile>
-  <DestTime>2022-02-14T12:56:19.910876-08:00</DestTime>
+  <DestTime>2022-02-15T13:08:09.6935913-08:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T09:17:54-07:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

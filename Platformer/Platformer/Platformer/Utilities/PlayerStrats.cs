@@ -23,7 +23,7 @@ namespace Platformer.Utilities
 
         public static float MusicVolume { get; set; } = 0.1f;
         public static float SoundEffectsVolume { get; set; } = 0.1f;
-        public static int CompletedLevels { get; set; } = -1; //Number of completed levels
+        public static int CompletedLevels { get; set; } = 1; //Number of completed levels
         public static Dictionary<string, List<int>> HighScores { get; set; } = new Dictionary<string, List<int>>(); 
 
 
@@ -66,11 +66,9 @@ namespace Platformer.Utilities
 
             string serializedText = JsonSerializer.Serialize<SaveStats>(obj);
 
-            Trace.WriteLine("Saved:" + serializedText);
             //path for saving
-
             File.WriteAllText(PATH, serializedText);
-
+         
 
         }
 
@@ -84,7 +82,6 @@ namespace Platformer.Utilities
             SoundEffectsVolume = data.SoundEffectsVolume;
             CompletedLevels = data.CompletedLevels;
             HighScores = data.HighScores;
-
 
 
         }
@@ -111,6 +108,8 @@ namespace Platformer.Utilities
             string serializedText = JsonSerializer.Serialize<SaveStats>(obj);
             writer.WriteLine(serializedText);
             writer.Close();
+
+          
         }
         public static void Load()
         {
@@ -130,6 +129,8 @@ namespace Platformer.Utilities
                 CompletedLevels = data.CompletedLevels;
                 HighScores = data.HighScores;
 
+               
+
 
             }
             catch
@@ -138,6 +139,6 @@ namespace Platformer.Utilities
             }
         }
 #endif
-#endregion
+        #endregion
     }
 }

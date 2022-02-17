@@ -71,17 +71,14 @@ namespace Platformer
             List<Texture2D> temp = new List<Texture2D>();
             DirectoryInfo d = new DirectoryInfo(fullPath);
             FileInfo[] Files = d.GetFiles("*.png"); //Getting png files
-            Trace.Write("{ " + '"'+folderName + '"'+ " , new string[] {");
             foreach (FileInfo file in Files)
             {
                 //cut out .png
                 string[] tempString = file.Name.Split('.');
-                Trace.Write('"'+file.Name+'"'+" , ");
                 string fileName = tempString[0];
                 string finalName = folderName + '/' + fileName;
                 temp.Add(content.Load<Texture2D>(finalName));
             }
-            Trace.WriteLine("}}, \n");
             
             return temp;
 
@@ -99,7 +96,6 @@ namespace Platformer
             
             var filePath = Path.Combine(content.RootDirectory, file);
 
-            Trace.WriteLine("path: " + file);
 
             List<string[]> terrainMap = new List<string[]>();
             using (Stream stream = TitleContainer.OpenStream(@filePath))
@@ -197,6 +193,25 @@ namespace Platformer
                 Trace.Write(a + " ,");
             }
             Trace.Write("] \n");
+        }
+        public static void printHighScoresDict(Dictionary<string, List<int>> dict)
+        {
+            foreach(var item in dict)
+            {
+                Trace.WriteLine("key: " + item.Key + " ,value coins:" + item.Value[0] + ",time: " + item.Value[1]);
+            }
+        }
+        public static string getLastHighscoreKey()
+        {
+            string biggest = "0";
+            foreach(var item in PlayerStats.HighScores)
+            {
+                if(Int32.Parse(item.Key) > Int32.Parse(biggest))
+                {
+                    biggest = item.Key;
+                }
+            }
+            return biggest;
         }
 
 

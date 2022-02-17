@@ -3,7 +3,7 @@
   <SourceFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/sound/jump2.wav</SourceFile>
   <SourceTime>2022-02-06T22:06:31.1413674-08:00</SourceTime>
   <DestFile>D:/FRI/3.letnik/TINR/Platformer-CrossPlatform/Platformer/Platformer/Platformer/Content/bin/Windows/sound/jump2.xnb</DestFile>
-  <DestTime>2022-02-14T12:56:35.0360689-08:00</DestTime>
+  <DestTime>2022-02-15T13:08:25.037088-08:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T09:17:54-07:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

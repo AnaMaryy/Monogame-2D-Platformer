@@ -169,12 +169,11 @@ namespace Platformer.Models
         {
             Random rnd = new Random();
             JumpSpeed = rnd.Next(2, 5);
-            Trace.WriteLine("jumpSpeed" + JumpSpeed);
             Gravity = 0.8f;
             State = "jump";
             StartingY = (int)position.Y;
             Direction = new Vector2(0, 0);
-            EndingY = Rectangle.Y - rnd.Next(1, 3) * GameData.TileSize;
+            EndingY = Rectangle.Y - rnd.Next(1, 2) * GameData.TileSize;
         }
         private void getState() //switches the states
         {

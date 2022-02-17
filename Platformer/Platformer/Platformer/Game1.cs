@@ -33,7 +33,7 @@ namespace Platformer
         {
             Window.Title = "Charlie's Adventures";
 
-#if DEKSTOP
+#if DESKTOP
             _graphics.PreferredBackBufferWidth =GameData.InitialScreenWidth;  // set this value to the desired width of your window
             _graphics.PreferredBackBufferHeight = GameData.InitialScreenHeight;   // set this value to the desired height of your window
             _graphics.IsFullScreen = false;
@@ -42,13 +42,12 @@ namespace Platformer
             GameData.AndroidScreenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
             //_graphics.PreferredBackBufferWidth =GameData.AndroidScreenWidth;
             //_graphics.PreferredBackBufferHeight = GameData.AndroidScreenHeight;
-            Trace.WriteLine("X :" + _graphics.GraphicsDevice.Viewport.Width + " Y " + _graphics.GraphicsDevice.Viewport.Height);
             //scale matrixes
             var scale_wid = (float)GameData.AndroidScreenWidth / GameData.InitialScreenWidth;
             var scale_hei = (float)GameData.AndroidScreenHeight / GameData.InitialScreenHeight;
             GameData.MenuScaleMatrix = Matrix.CreateScale(scale_wid, scale_hei, 1.0f);
 
-             var scale_width = (float)GameData.AndroidScreenWidth / GameData.LevelScreenWidth;
+            var scale_width = (float)GameData.AndroidScreenWidth / GameData.LevelScreenWidth;
             var scale_height = (float)GameData.AndroidScreenHeight / GameData.LevelScreenHeight;
             GameData.LevelScaleMatrix = Matrix.CreateScale(scale_width, scale_height, 1.0f);
 
@@ -56,7 +55,6 @@ namespace Platformer
             _graphics.IsFullScreen = true;
             _graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             _graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-            Trace.WriteLine("XX :" + GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width + " YY " + GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
 
             _graphics.SupportedOrientations = DisplayOrientation.LandscapeRight;//if your game does NOT support for anything else but portrait mode
             _graphics.ApplyChanges();
@@ -95,7 +93,7 @@ namespace Platformer
             GameData.SoundEffects.Add("hit", Content.Load<SoundEffect>("../../../../Content/sound/hit"));
             GameData.SoundEffects.Add("win", Content.Load<SoundEffect>("../../../../Content/sound/win"));
             GameData.SoundEffects.Add("heart", Content.Load<SoundEffect>("../../../../Content/sound/heart"));
-                        GameData.SoundEffects.Add("lose", Content.Load<SoundEffect>("../../../../Content/sound/lose"));
+            GameData.SoundEffects.Add("lose", Content.Load<SoundEffect>("../../../../Content/sound/lose"));
 
 #elif ANDROID
             GameData.SoundEffects.Add("jump", Content.Load<SoundEffect>("sound/jump2"));
@@ -136,6 +134,7 @@ namespace Platformer
             GameData.ImageSprites.Add("instructionBone", Content.Load<Texture2D>("game/instructions/jumpBoardSniff"));
             GameData.ImageSprites.Add("instructionMove", Content.Load<Texture2D>("game/instructions/moveBoard"));
             GameData.ImageSprites.Add("instructionJump", Content.Load<Texture2D>("game/instructions/jumpBoardSpacebar1"));
+            GameData.ImageSprites.Add("instructionDefeat", Content.Load<Texture2D>("game/instructions/jumpBoardDefeat"));
             GameData.ImageSprites.Add("instructionDropBone", Content.Load<Texture2D>("game/instructions/jumpBoardDropBone"));
 
             GameData.ImageSprites.Add("bubbleFail", Content.Load<Texture2D>("game/human/bubble/collectBubble"));
@@ -199,8 +198,12 @@ namespace Platformer
             _currentState = new MenuState(this, GraphicsDevice, Content, _spriteBatch);
             _currentState.LoadContent();
             _nextState = null;
-        }
 
+            //clear the highscores
+            //PlayerStats.HighScores.Clear();
+            //PlayerStats.Save();
+        }
+         
         protected override void Update(GameTime gameTime)
         {
             

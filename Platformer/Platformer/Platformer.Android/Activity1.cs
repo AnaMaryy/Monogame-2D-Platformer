@@ -7,9 +7,10 @@ using Microsoft.Xna.Framework;
 namespace Platformer.Android
 {
     [Activity(
-        Label = "@string/app_name",
+        //Label = "@string/app_name",
+        Label = "Archie's Adventures",
         MainLauncher = true,
-        Icon = "@drawable/icon",
+        Icon = "@drawable/icon2",
         AlwaysRetainTaskState = true,
         LaunchMode = LaunchMode.SingleInstance,
         ScreenOrientation = ScreenOrientation.Landscape,

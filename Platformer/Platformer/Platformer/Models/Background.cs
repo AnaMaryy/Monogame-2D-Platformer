@@ -23,11 +23,10 @@ namespace Platformer.Models
             TextureMid = textureMid;
             TextureTop = textureTop;
             TextureBottom = textureBottom;
-            int top = 0;// y top level of background
+            int top = 0+4* GameData.TileSize;// y top level of background
             int backgroundStart = -2 * GameData.LevelScreenWidth; // x position of starting backgound
             int backgroundTileWidth = TextureMid.Width;//width of the texture
             int backgroundTileXAmount = (int)((levelWidth + GameData.LevelScreenWidth) / backgroundTileWidth) + 2; // how many tiles do we need
-            Trace.WriteLine(backgroundTileXAmount);
 
             Vectors = new List<Vector3>();
             for (int i = 0; i <= backgroundTileXAmount; i++)
@@ -81,12 +80,12 @@ namespace Platformer.Models
         List<AnimatedTile> WaterAnimatedTiles { get; set; }
         public List<Vector2> Positions { get; private set; }
 
-        public Water(ContentManager content, int levelWidth)
+        public Water(ContentManager content, int levelWidth, int height)
         {
             _content = content;
             LoadContent();
 
-            int top = GameData.VerticalTileNumber * GameData.TileSize - Textures[0].Height + 10;// y top level of water
+            int top =height ;// y top level of water
             int waterStart = -10 * GameData.TileSize; // x position of water
             int waterTileWidth = Textures[0].Width;//width of the texture
             int waterTileXAmount = (int)((levelWidth + GameData.LevelScreenWidth) / waterTileWidth); // how many tiles do we need

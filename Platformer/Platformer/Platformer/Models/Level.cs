@@ -81,7 +81,9 @@ namespace Platformer.Models
 
              _camera = new Camera();
             //todo -> change to screen si
-            DeathLine = GameData.VerticalTileNumber * GameData.TileSize;
+            //DeathLine = GameData.VerticalTileNumber * GameData.TileSize;
+
+            DeathLine = 14* GameData.TileSize;
             //SpritesDict= LoadContent(content);
 
             //create player and endlevelTile
@@ -128,7 +130,7 @@ namespace Platformer.Models
             //decoration classes
             int horizon = 6; //at which tile is the horizon
             int levelWidth = terrainLayout[0].Length * GameData.TileSize;
-            Water = new Water(_content, levelWidth);
+            Water = new Water(_content, levelWidth,DeathLine);
             ScrollingBackground = new ScrollingBackground(GameData.ImageSprites["backgroundClouds"], GameData.ImageSprites["backgroundSky"], GameData.ImageSprites["backgroundBottom"], levelWidth);
 
             //gui
@@ -136,7 +138,6 @@ namespace Platformer.Models
 
 
             playBackgoundMusic();
-            _game.IsMouseVisible = false;
 
             //gameplay rules
             BonesNeeded = 3;
@@ -151,7 +152,7 @@ namespace Platformer.Models
             Stopwatch.Start();
 
             //create storyboard if level 1 
-            if(PlayerStats.CompletedLevels ==-1)
+            if(PlayerStats.CompletedLevels ==0)
             {
                 StoryBoard = new StoryBoard(GameData.ImageSprites["StartStoryBoard"], "close");
             }
@@ -357,9 +358,14 @@ namespace Platformer.Models
                             {
                                 texture = GameData.ImageSprites["instructionBone"];
                             }
-                            else
+                            else if(val1 == 3)
                             {
                                 texture = GameData.ImageSprites["instructionDropBone"];
+
+                            }
+                            else
+                            {
+                                texture = GameData.ImageSprites["instructionDefeat"];
 
                             }
                             InstructionTile tile = new InstructionTile(texture, new Vector2(x, y), null, null);
@@ -524,7 +530,7 @@ namespace Platformer.Models
             {
                 //start the bubble
                 EndLevelTile.TalkTimer.Wait = true;
-                //win
+                //check if win
                 if(BonesCurrent >= BonesNeeded)
                 {
                     if (!EndLevelTile.Win)
@@ -540,31 +546,32 @@ namespace Platformer.Models
                         EndLevelTile.Win = true;
                         WinTimer.Wait = true;
                     }
-                    //timer
-                    if (EndLevelTile.Win && !WinTimer.Wait)
-                    {
-                        //wait one second
-
-                        if (GameData.NumberOfLevels == PlayerStats.CompletedLevels + 1)
-                        {
-                            _game.ChangeState(new ThankYouState(_game, _graphicsDevice, _content, _spriteBatch));
-
-                        }
-                        else
-                        {
-                            _game.ChangeState(new NextLevelState(_game, _graphicsDevice, _content, _spriteBatch));
-                        }
-                    }
                 }
-               
             }
-            
+            // triggers if won -> but timer
+            if (EndLevelTile.Win && !WinTimer.Wait)
+            {
+                //wait one second
+
+                if (GameData.NumberOfLevels == PlayerStats.CompletedLevels)
+                {
+                    _game.ChangeState(new ThankYouState(_game, _graphicsDevice, _content, _spriteBatch));
+                    //change to the first level
+                    PlayerStats.CompletedLevels = 0;
+                    PlayerStats.Save();
+                }
+                else
+                {
+                    _game.ChangeState(new NextLevelState(_game, _graphicsDevice, _content, _spriteBatch));
+                }
+            }
+
 
         }
         private void checkDeath()
         {
             //if no health or out of bounds
-            if ((Player.CurrentHealth <= 0) || (Player.Rectangle.Y+Player.Height >= DeathLine))
+            if ((Player.CurrentHealth <= 0) || (Player.Rectangle.Y >= DeathLine))
             {
                 //_spriteBatch.Draw(GameData.ImageSprites["death"], new Vector2(Player.Rectangle.X, Player.Rectangle.Y), Color.White);
                 if (!Lose)
@@ -900,6 +907,9 @@ namespace Platformer.Models
                 Player.Draw();
             }
 
+            //water
+            Water.Draw(_spriteBatch);
+            Water.DrawFront(_spriteBatch);
 
             //gui
             Gui.Draw(_spriteBatch, Player.CurrentHealth, Player.MaxHealth, Coins, BonesCurrent, BonesNeeded);
@@ -910,16 +920,16 @@ namespace Platformer.Models
             }
 #endif
            
-            //water
-            Water.Draw(_spriteBatch);
-            Water.DrawFront(_spriteBatch);
+         
 
             //Storyboard
             if(StoryBoard != null && !StoryBoard.Clicked)
             {
                 var vec = new Vector2(_camera.CenterPosition.X + (Player.Width*Player.Scale) / 2, _camera.CenterPosition.Y + (Player.Height *Player.Scale) / 2 );
+#if ANDROID
                 StoryBoard.Update(gameTime, vec);
                 StoryBoard.Draw(gameTime, _spriteBatch);
+#endif
             }
 
             _spriteBatch.End();

@@ -111,4 +111,7 @@
     <None Include="$(MSBuildThisFileDirectory)LevelData\Tileset\palms.tsx" />
     <None Include="$(MSBuildThisFileDirectory)LevelData\Tileset\setup_tiles.tsx" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Content\bin\Android\Content\levelData\2\" />
+  </ItemGroup>
 </Project>

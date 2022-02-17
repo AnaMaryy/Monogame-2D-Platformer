@@ -68,10 +68,33 @@ namespace Platformer.Utilities
                 };
             }
         }
+        public static Dictionary<string, string> level_2
+        {
+            get
+            {
+                return new Dictionary<string, string>
+                {
+                    { "bg_palms","LevelData/2/level_2_bg_palms.csv" },
+                    { "coins","LevelData/2/level_2_coins.csv" },
+                    { "bones","LevelData/2/level_2_bones.csv" },
+                    { "hearts","LevelData/2/level_2_hearts.csv" },
+                    { "constraints","LevelData/2/level_2_constraints.csv" },
+                    { "leaves","LevelData/2/level_2_leaves.csv" },
+                    { "enemies","LevelData/2/level_2_enemies.csv" },
+                    { "fg_palms","LevelData/2/level_2_fg_palms.csv" },
+                    { "grass","LevelData/2/level_2_grass.csv" },
+                    { "crate","LevelData/2/level_2_crate.csv"},
+                    { "player","LevelData/2/level_2_player.csv" },
+                    { "terrain","LevelData/2/level_2_terrain.csv" },
+                    { "instructions","LevelData/2/level_2_instructions.csv" },
 
-        
-       
-        public static int NumberOfLevels { get { return 2; } }
+                };
+            }
+        }
+
+
+
+        public static int NumberOfLevels { get { return 3; } }
 
         //sprites
         public static Dictionary<string, Texture2D> ImageSprites { get; set; }

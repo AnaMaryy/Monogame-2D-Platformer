@@ -52,7 +52,9 @@ namespace Platformer.Sprites
         public void Update(GameTime gameTime, Vector2 centerPosition)
         {
             Position = centerPosition;
-            var buttonPosition = new Vector2(centerPosition.X + 340 * Scale, centerPosition.Y + 180 * Scale);
+            //var buttonPosition = new Vector2(centerPosition.X + 340 * Scale, centerPosition.Y + 180 * Scale);
+            var buttonPosition = new Vector2(centerPosition.X  * Scale, centerPosition.Y + 180 * Scale);
+
             Button.Position = buttonPosition;
             //Button.Rectangle = new Rectangle((int)centerPosition.X, (int)centerPosition.Y, Button.Rectangle.Width, Button.Rectangle.Height);
             Button.Update(gameTime);

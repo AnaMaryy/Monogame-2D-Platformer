@@ -1606,6 +1606,18 @@
 /processorParam:TextureFormat=Color
 /build:game/human/idle/FinnSprite3.png
 
+#begin game/instructions/jumpBoardDefeat.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:game/instructions/jumpBoardDefeat.png
+
 #begin game/instructions/jumpBoardDropBone.png
 /importer:TextureImporter
 /processor:TextureProcessor
