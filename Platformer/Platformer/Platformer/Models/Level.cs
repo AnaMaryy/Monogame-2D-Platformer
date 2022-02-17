@@ -356,17 +356,17 @@ namespace Platformer.Models
                             }
                             else if(val1 ==2)
                             {
-                                texture = GameData.ImageSprites["instructionBone"];
+                                texture = GameData.ImageSprites["instructionDefeat"];
+
                             }
                             else if(val1 == 3)
                             {
-                                texture = GameData.ImageSprites["instructionDropBone"];
+                                texture = GameData.ImageSprites["instructionBone"];
 
                             }
                             else
                             {
-                                texture = GameData.ImageSprites["instructionDefeat"];
-
+                                texture = GameData.ImageSprites["instructionDropBone"];
                             }
                             InstructionTile tile = new InstructionTile(texture, new Vector2(x, y), null, null);
                             tiles.Add(tile);
@@ -536,7 +536,7 @@ namespace Platformer.Models
                     if (!EndLevelTile.Win)
                     {
                         Stopwatch.Stop();
-                        int seconds = Stopwatch.Elapsed.Seconds;
+                        int seconds = (int)Stopwatch.Elapsed.TotalSeconds;
 
                         PlayerStats.CompletedLevels += 1;
                         PlayerStats.AddToHighscoreDictionary(PlayerStats.CompletedLevels.ToString(), new List<int> { Coins, seconds });
@@ -552,6 +552,9 @@ namespace Platformer.Models
             if (EndLevelTile.Win && !WinTimer.Wait)
             {
                 //wait one second
+                //stop playing the music
+                MediaPlayer.Stop();
+
 
                 if (GameData.NumberOfLevels == PlayerStats.CompletedLevels)
                 {
@@ -583,9 +586,8 @@ namespace Platformer.Models
                 }
                 if(Lose && !LoseTimer.Wait)
                 {
-                    //draw a death sprite and wait a second
-
-
+                    //stop playing music
+                    MediaPlayer.Stop();
                     //game over -> so switch to gameover screen?
                     _game.ChangeState(new DeathState(_game, _graphicsDevice, _content, _spriteBatch));
                 }
@@ -809,12 +811,7 @@ namespace Platformer.Models
             ScrollingBackground.Update();
             ScrollingBackground.Draw(_spriteBatch);
 
-            //for instruction tiles
-            foreach (InstructionTile tile in InstructionTiles)
-            {
-                tile.Update();
-                tile.Draw(_spriteBatch);
-            }
+           
             //for background palms
             foreach (PalmTreeTile tile in BgPalmTiles)
             {
@@ -823,6 +820,12 @@ namespace Platformer.Models
             }
             //for leaves
             foreach (Tile tile in LeavesTiles)
+            {
+                tile.Update();
+                tile.Draw(_spriteBatch);
+            }
+            //for instruction tiles
+            foreach (InstructionTile tile in InstructionTiles)
             {
                 tile.Update();
                 tile.Draw(_spriteBatch);
@@ -926,10 +929,10 @@ namespace Platformer.Models
             if(StoryBoard != null && !StoryBoard.Clicked)
             {
                 var vec = new Vector2(_camera.CenterPosition.X + (Player.Width*Player.Scale) / 2, _camera.CenterPosition.Y + (Player.Height *Player.Scale) / 2 );
-#if ANDROID
+
                 StoryBoard.Update(gameTime, vec);
                 StoryBoard.Draw(gameTime, _spriteBatch);
-#endif
+
             }
 
             _spriteBatch.End();

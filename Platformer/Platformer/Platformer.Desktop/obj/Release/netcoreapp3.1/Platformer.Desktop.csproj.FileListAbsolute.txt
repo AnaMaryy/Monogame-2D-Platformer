@@ -1,0 +1,5 @@
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\obj\Release\netcoreapp3.1\Platformer.Desktop.csproj.AssemblyReference.cache
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\obj\Release\netcoreapp3.1\Platformer.Desktop.GeneratedMSBuildEditorConfig.editorconfig
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\obj\Release\netcoreapp3.1\Platformer.Desktop.AssemblyInfoInputs.cache
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\obj\Release\netcoreapp3.1\Platformer.Desktop.AssemblyInfo.cs
+D:\FRI\3.letnik\TINR\Platformer-CrossPlatform\Platformer\Platformer\Platformer.Desktop\obj\Release\netcoreapp3.1\Platformer.Desktop.csproj.CoreCompileInputs.cache

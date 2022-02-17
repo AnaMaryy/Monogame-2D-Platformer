@@ -23,7 +23,7 @@ namespace Platformer.Utilities
 
         public static float MusicVolume { get; set; } = 0.1f;
         public static float SoundEffectsVolume { get; set; } = 0.1f;
-        public static int CompletedLevels { get; set; } = 1; //Number of completed levels
+        public static int CompletedLevels { get; set; } = 0; //Number of completed levels
         public static Dictionary<string, List<int>> HighScores { get; set; } = new Dictionary<string, List<int>>(); 
 
 
