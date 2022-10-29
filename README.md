@@ -10,7 +10,7 @@ The game is avaliable to dowload on the Google Play store: https://play.google.c
  The solution has three project files: 
  - Platformer: where all of the code and content is writen
  - Platformer Android: for android 
- - Platformer Desktop: for dektop aplication
+ - Platformer Desktop: for desktop application
  
  The levels were made using Tiled software. They were exported under the LevelData folder.
  
