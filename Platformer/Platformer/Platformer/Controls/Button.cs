@@ -105,14 +105,12 @@ namespace Platformer.Controls
             //if new click
             if (Type == "game")
             {
-                Rectangle = new Rectangle((int)Position.X - ((int)Origin.X), (int)Position.Y - (int)Origin.Y, (int)(Texture.Width * Scale), (int)(Texture.Height * Scale));
+                Rectangle = new Rectangle((int)Position.X - ((int)Origin.X), (int)Position.Y - (int)Origin.Y, Texture.Width, Texture.Height );
             }
             //TODO -> check this intersects
             if (mouseRectangle.Intersects(Rectangle))
             {
                 _isHovering = true;
-
-
 
                 //if new click
                 if (_currentMouse.LeftButton == ButtonState.Released && _previousMouse.LeftButton == ButtonState.Pressed)

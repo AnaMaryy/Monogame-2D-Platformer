@@ -11,8 +11,6 @@ public class MonoPackageManager_Resources {
 		"System.Text.Encodings.Web.dll",
 		"System.Text.Json.dll",
 		"Office.dll",
-		"Microsoft.Vbe.Interop.dll",
-		"office.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};

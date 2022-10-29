@@ -38,6 +38,8 @@ namespace Platformer.Android
             //SetImmersive();
             //_view.SystemUiVisibility = (StatusBarVisibility)SystemUiFlags.HideNavigation | (StatusBarVisibility)SystemUiFlags.ImmersiveSticky;
             //_view.SetOnSystemUiVisibilityChangeListener(new MyUiVisibilityChangeListener(_view));
+            
+            
             HideSystemUI();
 
         }

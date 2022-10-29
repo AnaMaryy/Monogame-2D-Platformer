@@ -930,8 +930,8 @@ namespace Platformer.Models
             {
                 var vec = new Vector2(_camera.CenterPosition.X + (Player.Width*Player.Scale) / 2, _camera.CenterPosition.Y + (Player.Height *Player.Scale) / 2 );
 
-                StoryBoard.Update(gameTime, vec);
-                StoryBoard.Draw(gameTime, _spriteBatch);
+               StoryBoard.Update(gameTime, vec);
+               StoryBoard.Draw(gameTime, _spriteBatch);
 
             }
 

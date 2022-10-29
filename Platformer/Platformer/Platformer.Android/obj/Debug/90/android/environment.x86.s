@@ -2,8 +2,8 @@
 	.section	.rodata.env.str.1,"aMS",@progbits,1
 	.type	.L.env.str.1, @object
 .L.env.str.1:
-	.asciz	"Platformer.Android.Platformer.Android"
-	.size	.L.env.str.1, 38
+	.asciz	"com.amarianistudios.myapp"
+	.size	.L.env.str.1, 26
 	.section	.data.application_config,"aw",@progbits
 	.type	application_config, @object
 	.p2align	2
@@ -71,7 +71,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",@progbits,1
 	.type	.L.env.str.8, @object
 .L.env.str.8:
-	.asciz	"6468c2b1-da3e-44a0-a033-1c81a0ef7610"
+	.asciz	"79afd722-b563-480a-963b-7e784fb7f038"
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",@progbits,1
 	.type	.L.env.str.9, @object

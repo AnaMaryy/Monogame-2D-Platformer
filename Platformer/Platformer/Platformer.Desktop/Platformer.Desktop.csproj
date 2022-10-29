@@ -12,6 +12,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>DEBUG;TRACE;DESKTOP</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;DESKTOP</DefineConstants>
+    <PlatformTarget>ARM32</PlatformTarget>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Content\**" />
     <EmbeddedResource Remove="Content\**" />
