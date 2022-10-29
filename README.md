@@ -13,6 +13,10 @@ The game is avaliable to dowload on the Google Play store: https://play.google.c
  - Platformer Desktop: for desktop application
  
  The levels were made using Tiled software. They were exported under the LevelData folder.
+ Use the code in any way you like :)
+ 
+ ###Screenshot of the game
+ <img src="https://i.imgur.com/kAwvGxV.jpg"/>
  
  ## Credit for art and sound assets:
  - pixel frog
